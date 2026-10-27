@@ -266,10 +266,7 @@ const icon = {
         </div>
 
         <div class="dock-foot" data-foot hidden>
-          <button class="dock-meta" type="button" data-meta aria-controls="order-panel">
-            <span data-meta-text></span>
-            <span class="dock-meta-edit">{t(lang, 'change')}</span>
-          </button>
+          <p class="dock-meta" data-meta-text></p>
           <button class="send" type="submit" form="order-form">
             <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.chat} />
             <span>{t(lang, 'send')}</span>

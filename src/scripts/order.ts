@@ -250,7 +250,6 @@ for (const input of payInputs) input.addEventListener('change', () => {
   updateMeta();
 });
 pickupSelect.addEventListener('change', updateMeta);
-$<HTMLButtonElement>('[data-meta]').addEventListener('click', () => setOpen(true));
 
 document.addEventListener('click', async (e) => {
   const btn = (e.target as Element).closest<HTMLButtonElement>('[data-copy]');
