@@ -1,0 +1,16 @@
+{
+  "showSampleLabels": true,
+  "name": "PIZZERIA",
+  "whatsapp": "+995 500 00 00 00",
+  "openingHours": { "open": "11:00", "close": "23:00" },
+  "prepMinutes": 20,
+  "address": {
+    "ka": "მისამართი მალე",
+    "en": "Address to come",
+    "ru": "Адрес скоро"
+  },
+  "bankAccounts": {
+    "bog": { "iban": "GE00BG0000000000000000", "holder": "Account holder to come" },
+    "tbc": { "iban": "GE00TB0000000000000000", "holder": "Account holder to come" }
+  }
+}

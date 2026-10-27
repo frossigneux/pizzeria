@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700;900&family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14213d;--red:#d62828;--green:#2a9d5c;--tile:#f4f1ea;--ink:#14213d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:390px;height:844px;overflow:hidden;background:var(--tile);font-family:Onest,"Noto Sans Georgian",sans-serif;color:var(--ink)}
+.sign{background:var(--navy);color:#fff;padding:14px 16px 12px}
+.row{display:flex;justify-content:space-between;align-items:center}
+.m{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);font-weight:800;font-size:15px;margin-right:10px}
+.name{font-weight:800;font-size:22px;letter-spacing:.02em}
+.tag{font-size:11px;opacity:.7;border:1px solid rgba(255,255,255,.4);padding:2px 6px;border-radius:3px}
+.lang{display:flex;gap:2px;font-size:13px;font-weight:600}
+.lang span{padding:5px 8px;border-radius:3px}
+.lang .on{background:#fff;color:var(--navy)}
+.ka{font-family:"Noto Sans Georgian";font-size:13px;opacity:.75;margin-top:6px}
+.info{display:flex;gap:14px;font-size:13px;margin-top:10px;font-weight:600}
+.info b{color:#8fd6ae}
+.tabs{display:flex;gap:6px;padding:12px 16px;background:#fff;border-bottom:3px solid var(--red);overflow:hidden}
+.tabs span{font-size:14px;font-weight:600;padding:7px 12px;border-radius:999px;border:1.5px solid var(--navy);white-space:nowrap}
+.tabs .on{background:var(--navy);color:#fff}
+.tabs i{font-style:normal;opacity:.6;margin-left:4px}
+.list{position:relative;padding:4px 16px 0 44px}
+.list:before{content:"";position:absolute;left:23px;top:0;bottom:0;width:6px;background:var(--red)}
+.st{position:relative;padding:14px 0;border-bottom:1px solid #d9d3c4;display:flex;justify-content:space-between;gap:12px}
+.st:before{content:"";position:absolute;left:-28px;top:18px;width:14px;height:14px;border-radius:50%;background:#fff;border:4px solid var(--red)}
+.st.in:before{background:var(--red)}
+.st h3{font-size:17px;font-weight:800}
+.st p{font-size:13px;opacity:.7;margin-top:3px}
+.st .ka2{font-family:"Noto Sans Georgian";font-size:12px;opacity:.55;margin-top:2px}
+.pr{text-align:right;white-space:nowrap}
+.pr strong{font-size:17px;font-weight:800;display:block}
+.add{margin-top:8px;display:inline-flex;align-items:center;border:2px solid var(--navy);border-radius:999px;font-weight:800;font-size:15px}
+.add span{padding:3px 11px}
+.add.has{background:var(--navy);color:#fff}
+.dock{position:absolute;left:0;right:0;bottom:0;background:var(--navy);color:#fff;padding:12px 16px 18px}
+.line{display:flex;align-items:center;margin-bottom:12px}
+.line i{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--red);flex:none}
+.line u{height:5px;background:var(--red);flex:1}
+.line .end{width:20px;height:20px;background:var(--green);border:3px solid #fff}
+.meta{display:flex;justify-content:space-between;font-size:13px;opacity:.85;margin-bottom:10px}
+.wa{display:flex;justify-content:space-between;align-items:center;background:var(--green);border-radius:10px;padding:15px 16px;font-weight:800;font-size:17px}
+.sample{position:absolute;right:10px;top:212px;font-size:10px;background:#fff3c4;color:#6b5400;padding:2px 6px;border-radius:3px}
+</style></head><body>
+<header class="sign">
+ <div class="row"><div class="row"><span class="m">P</span><span class="name">PIZZERIA</span></div>
+ <div class="lang"><span>ქა</span><span class="on">EN</span><span>RU</span></div></div>
+ <div class="ka">Pickup only · name and logo to come</div>
+ <div class="info"><span><b>●</b> Open · ready in ~20 min</span><span>Pay: BOG · TBC · at pickup</span></div>
+</header>
+<nav class="tabs"><span class="on">Classics<i>6</i></span><span>Specials<i>4</i></span><span>Drinks<i>5</i></span></nav>
+<span class="sample">SAMPLE MENU</span>
+<main class="list">
+ <div class="st in"><div><h3>Margherita</h3><p>Tomato, mozzarella, basil</p><div class="ka2">მარგარიტა</div></div><div class="pr"><strong>₾ 15</strong><span class="add has"><span>−</span><span>2</span><span>+</span></span></div></div>
+ <div class="st"><div><h3>Pepperoni</h3><p>Tomato, mozzarella, pepperoni</p><div class="ka2">პეპერონი</div></div><div class="pr"><strong>₾ 18</strong><span class="add"><span>Add +</span></span></div></div>
+ <div class="st in"><div><h3>Sulguni &amp; mushroom</h3><p>Sulguni, champignons, garlic oil</p><div class="ka2">სულგუნი და სოკო</div></div><div class="pr"><strong>₾ 19</strong><span class="add has"><span>−</span><span>1</span><span>+</span></span></div></div>
+ <div class="st"><div><h3>Four cheese</h3><p>Mozzarella, sulguni, gouda, blue</p><div class="ka2">ოთხი ყველი</div></div><div class="pr"><strong>₾ 21</strong><span class="add"><span>Add +</span></span></div></div>
+</main>
+<footer class="dock">
+ <div class="line"><i></i><u></u><i></i><u></u><i></i><u></u><i class="end"></i></div>
+ <div class="meta"><span>3 pizzas · pickup 19:30</span><span>Pay at pickup ▾</span></div>
+ <div class="wa"><span>Send order on WhatsApp</span><span>₾ 49</span></div>
+</footer>
+</body></html>

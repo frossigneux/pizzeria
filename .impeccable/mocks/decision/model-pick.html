@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;800&family=Permanent+Marker&family=Onest:wght@500;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:390px;height:844px;overflow:hidden;background:#c9a46a;font-family:Onest,"Noto Sans Georgian",sans-serif;color:#1b1b1b}
+header{padding:16px;display:flex;justify-content:space-between;align-items:flex-start}
+.name{font-family:"Permanent Marker";font-size:30px;line-height:1}
+.sub{font-size:12px;font-weight:500;margin-top:4px}
+.lang{font-size:13px;font-weight:800;background:#1b1b1b;color:#f7f3e8;padding:6px 9px;border-radius:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:4px 16px}
+.card{background:#f7f3e8;padding:12px 12px 10px;box-shadow:0 1px 0 rgba(0,0,0,.15);transform:rotate(-1deg);position:relative}
+.card:nth-child(2n){transform:rotate(1.2deg)}
+.card .p{font-family:"Permanent Marker";font-size:40px;line-height:1;color:#e63946}
+.card .p small{font-size:20px}
+.card h3{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+.card p{font-size:11px;margin-top:2px;opacity:.75}
+.card .add{margin-top:8px;font-size:13px;font-weight:800;border:2px solid #1b1b1b;text-align:center;padding:5px}
+.card .add.on{background:#2b7a3d;color:#fff;border-color:#2b7a3d}
+.sample{display:inline-block;margin:0 16px 8px;font-size:10px;background:#1b1b1b;color:#f7f3e8;padding:2px 6px}
+.ticket{position:absolute;left:12px;right:12px;bottom:12px;background:#e9dcc0;border-top:2px dashed #1b1b1b;padding:14px 14px 14px}
+.ticket .r{display:flex;justify-content:space-between;font-size:14px;font-weight:500;padding:2px 0}
+.tot{font-family:"Permanent Marker";font-size:30px;color:#e63946}
+.wa{margin-top:10px;background:#2b7a3d;color:#fff;font-weight:800;font-size:17px;padding:14px;text-align:center}
+</style></head><body>
+<header><div><div class="name">PIZZERIA</div><div class="sub">Pickup · name to come</div></div><div class="lang">ქა · EN · RU</div></header>
+<span class="sample">SAMPLE PRICES</span>
+<section class="grid">
+ <div class="card"><div class="p">15<small>₾</small></div><h3>Margherita</h3><p>Tomato, mozzarella</p><div class="add on">✓ 2 in bag</div></div>
+ <div class="card"><div class="p">18<small>₾</small></div><h3>Pepperoni</h3><p>Pepperoni, mozzarella</p><div class="add">+ Add</div></div>
+ <div class="card"><div class="p">19<small>₾</small></div><h3>Sulguni</h3><p>Sulguni, mushroom</p><div class="add on">✓ 1 in bag</div></div>
+ <div class="card"><div class="p">21<small>₾</small></div><h3>4 Cheese</h3><p>Four cheeses</p><div class="add">+ Add</div></div>
+</section>
+<div class="ticket">
+ <div class="r"><span>2 × Margherita</span><span>30</span></div>
+ <div class="r"><span>1 × Sulguni</span><span>19</span></div>
+ <div class="r"><span>Pay: BOG / TBC transfer</span><span class="tot">49₾</span></div>
+ <div class="wa">Send on WhatsApp →</div>
+</div>
+</body></html>

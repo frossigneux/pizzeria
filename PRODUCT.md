@@ -1,0 +1,45 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Stack
+
+delegated: Astro. The pages are mostly static (menu, info), so Astro ships them as plain HTML with near-zero JS, which keeps load fast on phones. The cart is the only interactive part and can be a single island that builds a pre-filled WhatsApp message link. With no backend, the whole site can be hosted as static files. Deploy target: GitHub Pages from the public repo frossigneux/pizzeria for now (https://frossigneux.github.io/pizzeria/); moving to Cloudflare Pages with a private repo is documented in README.md. The menu and settings live in `content/*.json` so the pizzeria can edit them on github.com; every commit rebuilds the site, and a malformed file fails the build without touching the live site.
+
+## Users
+
+Customers in Georgia ordering pizza online for pickup. The audience mixes Georgian speakers, Russian speakers, and English-speaking visitors and expats. They are usually hungry and want to get food quickly, so the order should take as few steps as possible.
+
+## Product Purpose
+
+Let customers browse the menu and place a pickup order quickly, sent via WhatsApp. Success means a customer goes from landing on the site to a confirmed order with little friction, and comes back to order again.
+
+## Positioning
+
+Fast and good value: quick service, fair prices, orders ready on time. The product should feel like that promise in practice. The ordering flow itself is the evidence of speed and value.
+
+## Capabilities and Constraints
+
+- Core flow: browse menu → build cart → send the order via WhatsApp. The site composes the order, and WhatsApp carries it to the pizzeria. There is no order backend.
+- Guest checkout only: no customer accounts.
+- Pickup only: no delivery.
+- Payment: the customer chooses between a bank transfer to the pizzeria's account at TBC or Bank of Georgia (BOG), done from their banking app, and paying at pickup. No card-payment gateway.
+- Languages: Georgian, English, Russian.
+- No staff/kitchen view in scope. The pizzeria receives and confirms orders in WhatsApp.
+- Location: Georgia. Prices in GEL (₾).
+- Open decisions: ordering hours, pickup address, the WhatsApp number, and the BOG/TBC account details (IBAN, account holder).
+
+## Evidence on Hand
+
+None yet: no name, logo, menu, prices or photos exist. Placeholders are allowed but must be clearly marked as placeholders. Never present invented names, dishes, prices, reviews or photos as real.
+
+## Product Principles
+
+1. **Speed is the brand.** Every screen should get a hungry customer closer to a confirmed order. Cut any step that does not do that.
+2. **Value is shown plainly.** Prices, fees and totals are always visible and honest, with no surprises at checkout.
+3. **Reliability builds repeat orders.** Order status, timing and confirmation are clear, and reordering is easy.
+4. **Phone first in practice.** Most orders happen on a phone, often while the customer is doing something else, so the flow must work one-handed and on slow connections.

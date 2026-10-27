@@ -1,0 +1,70 @@
+import raw from '../../content/menu.json';
+import { langs } from '../i18n';
+import { check, text, type Text } from './validate';
+
+// The menu lives in content/menu.json so the pizzeria can edit it on GitHub.
+// Anything malformed stops the build with a message naming the item and the field,
+// so a bad edit never reaches the live site.
+
+export interface Item {
+  id: string;
+  name: Text;
+  desc: Text;
+  price: number; // GEL
+}
+
+export interface Category {
+  id: string;
+  name: Text;
+  items: Item[];
+}
+
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-|-$/g, '');
+
+function load(data: unknown): Category[] {
+  const file = 'content/menu.json';
+  const root = data as { categories?: unknown };
+  check(Array.isArray(root?.categories) && root.categories.length > 0, file, '"categories" must be a list with at least one category');
+
+  const seen = new Set<string>();
+  const uniqueId = (wanted: string, where: string) => {
+    check(!seen.has(wanted), file, `${where}: two entries end up with the id "${wanted}". Give one of them its own "id".`);
+    seen.add(wanted);
+    return wanted;
+  };
+
+  return (root.categories as Record<string, unknown>[]).map((c, ci) => {
+    const where = `category ${ci + 1}`;
+    const name = text(c.name, file, `${where} → "name"`);
+    const id = uniqueId(typeof c.id === 'string' && c.id ? c.id : slug(name.en), where);
+    check(Array.isArray(c.items), file, `${where} ("${name.en}") → "items" must be a list`);
+
+    const items = (c.items as Record<string, unknown>[])
+      .filter((i) => i.available !== false)
+      .map((i, ii) => {
+        const at = `${where} ("${name.en}"), item ${ii + 1}`;
+        const itemName = text(i.name, file, `${at} → "name"`);
+        const label = `${at} ("${itemName.en}")`;
+        check(typeof i.price === 'number' && i.price > 0, file, `${label} → "price" must be a number above 0, without quotes or ₾, e.g. 15 or 15.5`);
+        return {
+          id: uniqueId(typeof i.id === 'string' && i.id ? i.id : slug(itemName.en), label),
+          name: itemName,
+          desc: i.description === undefined ? Object.fromEntries(langs.map((l) => [l, ''])) as Text : text(i.description, file, `${label} → "description"`),
+          price: i.price as number,
+        };
+      });
+    return { id, name, items };
+  }).filter((c) => c.items.length > 0);
+}
+
+export const menu: Category[] = load(raw);
+
+export const items: Record<string, Item> = Object.fromEntries(
+  menu.flatMap((c) => c.items.map((i) => [i.id, i])),
+);
+

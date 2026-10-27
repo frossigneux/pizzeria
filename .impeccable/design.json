@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T15:29:24+00:00",
+  "title": "Design System: Pizzeria",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Night Enamel Navy",
+        "canonical": "#14213d",
+        "tonalRamp": [
+          "#060b15",
+          "#1d2535",
+          "#374259",
+          "#52617f",
+          "#7382a2",
+          "#98a5c0",
+          "#bec9df",
+          "#e7efff"
+        ]
+      },
+      "navy-2": {
+        "role": "primary",
+        "displayName": "Enamel Navy, raised",
+        "canonical": "#1e2d52",
+        "tonalRamp": [
+          "#060b17",
+          "#1c2439",
+          "#35415e",
+          "#506086",
+          "#7082aa",
+          "#95a5c7",
+          "#bdc9e5",
+          "#e5efff"
+        ]
+      },
+      "navy-3": {
+        "role": "primary",
+        "displayName": "Enamel Navy, edge",
+        "canonical": "#2c3d66",
+        "tonalRamp": [
+          "#060b18",
+          "#1b243a",
+          "#344160",
+          "#4f6088",
+          "#6f82ac",
+          "#95a5c9",
+          "#bcc9e6",
+          "#e5efff"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Line Red",
+        "canonical": "#d62828",
+        "tonalRamp": [
+          "#250000",
+          "#510000",
+          "#810007",
+          "#b51419",
+          "#dd443d",
+          "#f87a6e",
+          "#ffaa9e",
+          "#ffd9cf"
+        ]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Terminus Green",
+        "canonical": "#1f7a47",
+        "tonalRamp": [
+          "#001103",
+          "#002e15",
+          "#0e4f2b",
+          "#237244",
+          "#499564",
+          "#79b58c",
+          "#a7d7b5",
+          "#d6f9e0"
+        ]
+      },
+      "green-lit": {
+        "role": "tertiary",
+        "displayName": "Signal Green",
+        "canonical": "#3fbf7a",
+        "tonalRamp": [
+          "#001202",
+          "#003110",
+          "#005226",
+          "#00773d",
+          "#209a5d",
+          "#65ba86",
+          "#9adbb1",
+          "#cefcdd"
+        ]
+      },
+      "tile": {
+        "role": "neutral",
+        "displayName": "Station Tile",
+        "canonical": "#eceff3",
+        "tonalRamp": [
+          "#090b0e",
+          "#232528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a2a5a9",
+          "#c6c9cd",
+          "#eceff3"
+        ]
+      },
+      "tile-2": {
+        "role": "neutral",
+        "displayName": "Tile Shadow",
+        "canonical": "#dde2e9",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232528",
+          "#3f4246",
+          "#5e6267",
+          "#7e8388",
+          "#a2a5aa",
+          "#c6c9cd",
+          "#eceff2"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Grout Line",
+        "canonical": "#cbd2dc",
+        "tonalRamp": [
+          "#090b0e",
+          "#22252a",
+          "#3e4248",
+          "#5c626a",
+          "#7d838b",
+          "#a0a5ad",
+          "#c5c9cf",
+          "#eceff3"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#14213d",
+        "tonalRamp": [
+          "#060b15",
+          "#1d2535",
+          "#374259",
+          "#52617f",
+          "#7382a2",
+          "#98a5c0",
+          "#bec9df",
+          "#e7efff"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#4a5470",
+        "tonalRamp": [
+          "#080b14",
+          "#1f2533",
+          "#3a4156",
+          "#57607b",
+          "#77829d",
+          "#9ca5bc",
+          "#c2c9dc",
+          "#e9eefc"
+        ]
+      },
+      "on-navy": {
+        "role": "neutral",
+        "displayName": "Sign White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "on-navy-2": {
+        "role": "neutral",
+        "displayName": "Sign White, dimmed",
+        "canonical": "#c3cae0",
+        "tonalRamp": [
+          "#090b11",
+          "#22252e",
+          "#3d414f",
+          "#5b6172",
+          "#7c8294",
+          "#9fa5b4",
+          "#c5c9d6",
+          "#ebeef8"
+        ]
+      },
+      "note-bg": {
+        "role": "neutral",
+        "displayName": "Placeholder Yellow",
+        "canonical": "#fff1bf",
+        "tonalRamp": [
+          "#0f0b01",
+          "#2b250d",
+          "#4a4222",
+          "#6c6138",
+          "#8e8258",
+          "#afa582",
+          "#d1c9ad",
+          "#f4efda"
+        ]
+      },
+      "note-ink": {
+        "role": "neutral",
+        "displayName": "Placeholder Ink",
+        "canonical": "#5a4500",
+        "tonalRamp": [
+          "#110a00",
+          "#2e2405",
+          "#4f4017",
+          "#735f2a",
+          "#95804c",
+          "#b5a479",
+          "#d6c8a6",
+          "#f8eed5"
+        ]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "#b3261e",
+        "tonalRamp": [
+          "#220000",
+          "#4c0302",
+          "#7a1711",
+          "#ab2d24",
+          "#d25346",
+          "#ed8274",
+          "#ffafa2",
+          "#ffdcd2"
+        ]
+      },
+      "error-on-navy": {
+        "role": "error",
+        "displayName": "Error on Navy",
+        "canonical": "#ffb4ab",
+        "tonalRamp": [
+          "#180504",
+          "#3b1a17",
+          "#61332e",
+          "#8a4e48",
+          "#ae6f68",
+          "#cc958f",
+          "#e9bdb7",
+          "#ffe6e1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Brand name, send total, sent confirmation heading only (line-height 1 on the brand)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Dish names, prices, dock title; Georgian interchange plates."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base text, info values, order lines; tabular numerals globally."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Ingredients, second-language names, hints, meta lines."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Interchange plates, field labels, pill and button text; uppercase and 0.06em tracking under :lang(en) and :lang(ru) only, never Georgian."
+      }
+    },
+    "fonts": [
+      {
+        "family": "Onest",
+        "weights": [
+          400,
+          600,
+          800
+        ],
+        "scripts": [
+          "latin",
+          "cyrillic"
+        ],
+        "source": "@fontsource/onest (self-hosted)"
+      },
+      {
+        "family": "Noto Sans Georgian",
+        "weights": [
+          400,
+          700,
+          800
+        ],
+        "scripts": [
+          "georgian"
+        ],
+        "source": "@fontsource/noto-sans-georgian (self-hosted); leads the stack under :lang(ka)"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "dock-lift-mobile",
+        "value": "0 -6px 24px rgb(0 0 0 / 0.22)",
+        "purpose": "Bottom-pinned order dock on phones."
+      },
+      {
+        "name": "dock-lift-desktop",
+        "value": "0 10px 30px rgb(0 0 0 / 0.18)",
+        "purpose": "Sticky side dock at 960px and up."
+      },
+      {
+        "name": "invalid-ring",
+        "value": "0 0 0 2px #b3261e",
+        "purpose": "Invalid field inside the dock."
+      },
+      {
+        "name": "scrim",
+        "value": "rgb(0 0 0 / 0.4)",
+        "purpose": "Page dim behind the open mobile dock (background, not shadow)."
+      }
+    ],
+    "focus": {
+      "value": "outline: 3px solid #d62828; outline-offset: 2px; border-radius: 4px",
+      "purpose": "Global :focus-visible ring."
+    },
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "All transitions and keyframes."
+      },
+      {
+        "name": "state-fill",
+        "value": "0.2s",
+        "purpose": "Station dot fill, send button hover."
+      },
+      {
+        "name": "chevron-turn",
+        "value": "0.3s",
+        "purpose": "Dock chevron rotation."
+      },
+      {
+        "name": "station-bump",
+        "value": "0.4s, scale 1.35 at 50%",
+        "purpose": "Station dot when its quantity changes; reduced-motion gated."
+      },
+      {
+        "name": "station-in",
+        "value": "0.45s, from translateX(-14px) scale(0.2) opacity 0",
+        "purpose": "New dot entering the cart track; reduced-motion gated."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop",
+        "value": "960px"
+      },
+      {
+        "name": "content-max",
+        "value": "1120px"
+      },
+      {
+        "name": "dock-width",
+        "value": "380px"
+      }
+    ],
+    "layout": {
+      "line-x": "26px",
+      "dock-reserve-mobile": "220px",
+      "sticky-dock-top": "84px"
+    }
+  },
+  "components": [
+    {
+      "name": "Send Button",
+      "kind": "button",
+      "refersTo": "button-send",
+      "description": "The single primary action: send the order on WhatsApp, total at right. Lives in the dock foot.",
+      "html": "<button class=\"ds-send\" type=\"button\"><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 3.5a6.5 6.5 0 0 0-5.6 9.8L3.5 16.5l3.3-.9A6.5 6.5 0 1 0 10 3.5Z\"/></svg><span>Send on WhatsApp</span><span class=\"ds-send-total\">₾ 49</span></button>",
+      "css": ".ds-send { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); width: 320px; min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border: 0; border-radius: 10px; background: var(--green, #1f7a47); color: var(--on-navy, #fff); font-size: 1.0625rem; font-weight: 800; text-align: left; font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-send span:first-of-type { flex: 1; } .ds-send-total { font-size: 1.5rem; } .ds-send:hover { background: #1a6a3d; } .ds-send:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary pill action on navy (back to order, new order).",
+      "html": "<div class=\"ds-ghost-wrap\"><button class=\"ds-ghost\" type=\"button\">Back to order</button></div>",
+      "css": ".ds-ghost-wrap { background: var(--navy, #14213d); padding: 16px; display: inline-block; border-radius: 16px; } .ds-ghost { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); min-height: 44px; padding: 0 16px; border: 2px solid var(--on-navy-2, #c3cae0); border-radius: 999px; background: none; color: var(--on-navy, #fff); font-weight: 800; font-size: 0.875rem; cursor: pointer; } .ds-ghost:hover { background: var(--navy-3, #2c3d66); } .ds-ghost:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Category Pills",
+      "kind": "chip",
+      "refersTo": "category-pill",
+      "description": "Sticky section pills with counts; the section in view reverses to navy with a red count.",
+      "html": "<nav class=\"ds-cats\"><a href=\"#\" aria-current=\"true\">Classics <span class=\"ds-cats-n\">4</span></a><a href=\"#\">Georgian twist <span class=\"ds-cats-n\">4</span></a><a href=\"#\">Drinks <span class=\"ds-cats-n\">3</span></a></nav>",
+      "css": ".ds-cats { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); display: flex; gap: 8px; padding: 12px 16px; background: var(--tile, #eceff3); border-bottom: 4px solid var(--red, #d62828); } .ds-cats a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px 0 16px; border: 2px solid var(--navy, #14213d); border-radius: 999px; font-size: 0.875rem; font-weight: 600; text-decoration: none; color: var(--ink, #14213d); background: #fff; } .ds-cats a:hover { background: var(--tile-2, #dde2e9); } .ds-cats a[aria-current] { background: var(--navy, #14213d); color: #fff; } .ds-cats-n { min-width: 22px; height: 22px; display: grid; place-items: center; border-radius: 999px; background: var(--tile-2, #dde2e9); color: var(--ink, #14213d); font-weight: 800; } .ds-cats a[aria-current] .ds-cats-n { background: var(--red, #d62828); color: #fff; } .ds-cats a:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Language Switch",
+      "kind": "nav",
+      "refersTo": "navy-2",
+      "description": "Three-segment ka/en/ru switch on the navy sign; current language is a white segment.",
+      "html": "<div class=\"ds-sign\"><nav class=\"ds-lang\"><a href=\"#\" lang=\"ka\">ქა</a><a href=\"#\" aria-current=\"true\">EN</a><a href=\"#\">RU</a></nav></div>",
+      "css": ".ds-sign { background: var(--navy, #14213d); padding: 16px; display: inline-block; } .ds-lang { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); display: flex; gap: 2px; background: var(--navy-2, #1e2d52); padding: 3px; border-radius: 6px; } .ds-lang a { min-width: 44px; min-height: 36px; display: grid; place-items: center; font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 4px; color: var(--on-navy-2, #c3cae0); } .ds-lang a:hover { color: #fff; } .ds-lang a[aria-current] { background: #fff; color: var(--navy, #14213d); } .ds-lang a:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Station Row with Quantity Control",
+      "kind": "custom",
+      "refersTo": "qty-stepper",
+      "description": "A dish as a station on the red line; the Add pill reverses to a navy stepper and the dot fills red once ordered.",
+      "html": "<div class=\"ds-line\"><div class=\"ds-plate\">CLASSICS</div><div class=\"ds-station\"><h3>Pepperoni</h3><span class=\"ds-price\">₾ 18</span><p class=\"ds-desc\">Tomato, mozzarella, pepperoni</p><p class=\"ds-alt\" lang=\"ka\">პეპერონი</p><button class=\"ds-add\" type=\"button\"><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M10 4v12M4 10h12\"/></svg><span>Add</span></button></div><div class=\"ds-station is-in\"><h3>Margherita</h3><span class=\"ds-price\">₾ 15</span><p class=\"ds-desc\">Tomato, mozzarella, basil</p><p class=\"ds-alt\" lang=\"ka\">მარგარიტა</p><span class=\"ds-step\"><button type=\"button\" aria-label=\"Remove one\"><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M4 10h12\"/></svg></button><output>2</output><button type=\"button\" aria-label=\"Add one\"><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M10 4v12M4 10h12\"/></svg></button></span></div></div>",
+      "css": ".ds-line { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); position: relative; width: 360px; padding: 4px 16px 0 42px; background: var(--tile, #eceff3); color: var(--ink, #14213d); font-variant-numeric: tabular-nums; } .ds-line::before { content: ''; position: absolute; left: 23px; top: 20px; bottom: 0; width: 6px; background: var(--red, #d62828); } .ds-plate { position: relative; display: inline-block; background: var(--navy, #14213d); color: #fff; padding: 8px 12px; border-radius: 4px; font-size: 0.875rem; font-weight: 800; letter-spacing: 0.06em; } .ds-plate::before { content: ''; position: absolute; left: -29px; bottom: 4px; width: 26px; height: 26px; box-sizing: border-box; border-radius: 50%; background: #fff; border: 5px solid var(--navy, #14213d); } .ds-station { position: relative; display: grid; grid-template-columns: minmax(0,1fr) auto; column-gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--rule, #cbd2dc); } .ds-station:last-child { border-bottom: 0; } .ds-station::before { content: ''; position: absolute; left: -25px; top: 19px; width: 18px; height: 18px; box-sizing: border-box; border-radius: 50%; background: #fff; border: 4px solid var(--red, #d62828); } .ds-station.is-in::before { background: var(--red, #d62828); } .ds-station h3 { margin: 0; font-size: 1.0625rem; font-weight: 800; line-height: 1.3; } .ds-price { justify-self: end; font-weight: 800; } .ds-desc, .ds-alt { margin: 2px 0 0; font-size: 0.875rem; color: var(--ink-2, #4a5470); grid-column: 1 / -1; } .ds-alt { grid-column: 1; } .ds-add, .ds-step { grid-column: 2; justify-self: end; margin-top: 8px; display: inline-flex; align-items: center; height: 48px; border: 2px solid var(--navy, #14213d); border-radius: 999px; font: inherit; } .ds-add { gap: 6px; padding: 0 16px 0 12px; background: #fff; color: var(--ink, #14213d); font-size: 0.875rem; font-weight: 800; cursor: pointer; } .ds-add:hover { background: var(--tile-2, #dde2e9); } .ds-step { padding: 2px; background: var(--navy, #14213d); color: #fff; } .ds-step button { display: grid; place-items: center; width: 44px; height: 100%; border: 0; background: none; color: inherit; border-radius: 999px; cursor: pointer; } .ds-step button:hover { background: var(--navy-3, #2c3d66); } .ds-step output { min-width: 20px; text-align: center; font-weight: 800; } .ds-add:focus-visible, .ds-step button:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Order Dock with Cart Track",
+      "kind": "custom",
+      "refersTo": "order-dock",
+      "description": "The navy dock: a red track with one dot per pizza ending at a green square terminus, then title, count and the send bar.",
+      "html": "<aside class=\"ds-dock\"><span class=\"ds-track\"><i></i><i></i><i></i><b></b></span><div class=\"ds-dock-title\">Your order</div><div class=\"ds-dock-count\">3 items</div><button class=\"ds-dock-send\" type=\"button\"><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 3.5a6.5 6.5 0 0 0-5.6 9.8L3.5 16.5l3.3-.9A6.5 6.5 0 1 0 10 3.5Z\"/></svg><span>Send on WhatsApp</span><span class=\"ds-dock-total\">₾ 49</span></button></aside>",
+      "css": ".ds-dock { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); width: 340px; padding: 16px; background: var(--navy, #14213d); color: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgb(0 0 0 / 0.18); font-variant-numeric: tabular-nums; } .ds-track { position: relative; display: flex; align-items: center; gap: 10px; height: 22px; padding-right: 34px; margin-bottom: 12px; } .ds-track::before { content: ''; position: absolute; left: 0; right: 10px; top: 50%; height: 5px; margin-top: -2.5px; background: var(--red, #d62828); border-radius: 3px; } .ds-track i { position: relative; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: #fff; border: 4px solid var(--red, #d62828); } .ds-track b { position: absolute; right: 0; top: 0; width: 22px; height: 22px; box-sizing: border-box; border-radius: 6px; background: var(--green-lit, #3fbf7a); border: 4px solid #fff; } .ds-dock-title { font-weight: 800; } .ds-dock-count { font-size: 0.875rem; color: var(--on-navy-2, #c3cae0); margin-bottom: 12px; } .ds-dock-send { font: inherit; width: 100%; min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border: 0; border-radius: 10px; background: var(--green, #1f7a47); color: #fff; font-weight: 800; text-align: left; cursor: pointer; } .ds-dock-send span:first-of-type { flex: 1; } .ds-dock-total { font-size: 1.5rem; } .ds-dock-send:hover { background: #1a6a3d; } .ds-dock-send:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field on Navy",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "White field inside the dock with a caps label (en/ru) and a dimmed hint.",
+      "html": "<div class=\"ds-navy\"><label class=\"ds-field\"><span class=\"ds-field-label\">YOUR NAME</span><input value=\"Nino\" /><span class=\"ds-field-hint\">We call this name at pickup</span></label></div>",
+      "css": ".ds-navy { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); background: var(--navy, #14213d); color: #fff; padding: 16px; width: 320px; border-radius: 16px; } .ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-field-label { font-size: 0.875rem; font-weight: 800; letter-spacing: 0.06em; } .ds-field input { font: inherit; min-height: 48px; padding: 12px; font-size: 1.0625rem; background: #fff; color: var(--ink, #14213d); border: 2px solid #fff; border-radius: 8px; caret-color: var(--red, #d62828); } .ds-field input:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; } .ds-field input[aria-invalid='true'] { border-color: #ff8a80; box-shadow: 0 0 0 2px var(--error, #b3261e); } .ds-field-hint { font-size: 0.875rem; color: var(--on-navy-2, #c3cae0); }"
+    },
+    {
+      "name": "Payment Options",
+      "kind": "input",
+      "refersTo": "pay-option",
+      "description": "Radio rows on navy; the checked row gets a white border and navy-2 fill, the radio a signal-green ring.",
+      "html": "<div class=\"ds-navy-pay\"><label class=\"ds-pay\"><input type=\"radio\" name=\"ds-pay\" /><span>Pay at pickup</span></label><label class=\"ds-pay\"><input type=\"radio\" name=\"ds-pay\" checked /><span>Transfer · Bank of Georgia</span></label></div>",
+      "css": ".ds-navy-pay { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); background: var(--navy, #14213d); color: #fff; padding: 16px; width: 320px; display: grid; gap: 8px; border-radius: 16px; } .ds-pay { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 12px; border: 2px solid var(--navy-3, #2c3d66); border-radius: 8px; cursor: pointer; font-weight: 600; } .ds-pay:hover { border-color: var(--on-navy-2, #c3cae0); } .ds-pay:has(input:checked) { border-color: #fff; background: var(--navy-2, #1e2d52); } .ds-pay input { appearance: none; width: 20px; height: 20px; margin: 0; border-radius: 50%; border: 2px solid var(--on-navy-2, #c3cae0); flex: none; } .ds-pay input:checked { border: 6px solid var(--green-lit, #3fbf7a); background: #fff; } .ds-pay input:focus-visible { outline: 3px solid var(--red, #d62828); outline-offset: 2px; }"
+    },
+    {
+      "name": "Sample Tag",
+      "kind": "chip",
+      "refersTo": "sample-tag",
+      "description": "Yellow 4px plate marking placeholder content; shown only while config.placeholder is true.",
+      "html": "<span class=\"ds-sample\">Sample menu · prices to confirm</span>",
+      "css": ".ds-sample { font-family: var(--font, 'Onest', 'Noto Sans Georgian', system-ui, sans-serif); display: inline-block; font-size: 0.875rem; font-weight: 600; background: var(--note-bg, #fff1bf); color: var(--note-ink, #5a4500); padding: 2px 8px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Red Line to Pickup",
+    "overview": "**Creative North Star: \"The Red Line to Pickup\"**\n\nThe page is Tbilisi metro wayfinding applied to an order. Night-navy enamel sign panels carry white type; a red line runs down the menu with each pizza as a station on it; the order dock repeats that line in miniature, one dot per pizza, ending at a green square terminus beside the send button. The ground is the pale station tile. Nothing is photographic; the line, the dots and the reversed plates carry the whole identity.\n\nDensity is that of a transit sign: tight, fixed furniture per row (name, price, ingredients, second-language name, quantity control), a single column of content on phones, the order panel standing beside the line on desktop. Rank never comes from size. There are two text sizes and one display size; hierarchy is made with weight (400 / 600 / 800), capitals (Latin and Cyrillic only) and reversal (white on navy).\n\nThe system is trilingual (Georgian, English, Russian) and must read the same in all three. Georgian Mkhedruli has no case, so the system never asks it to shout. Every name, dish, price, hour, IBAN and phone number is currently a placeholder and is marked as such with the yellow sample tag.",
+    "keyCharacteristics": [
+      "Navy sign header, tile ground, one red line, one green terminus.",
+      "Round dots are stations; rounded squares are termini; pills are controls; 4px plates are sign labels.",
+      "Two text sizes plus one display size; rank by weight, case and reversal.",
+      "Flat, in-flow content; only the order dock floats.",
+      "Tabular numerals everywhere so prices and counts do not jitter."
+    ],
+    "rules": [
+      {
+        "name": "The Line Rule",
+        "body": "Red belongs to the line and to what sits on it: the line itself, station dots, the cart track, the active count, the focus ring. It is never the fill of a button, panel or text block.",
+        "section": "colors"
+      },
+      {
+        "name": "The Terminus Rule",
+        "body": "Green means arrival: open, chosen, copied, send. The send button is the only large green surface on the page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Placeholder Yellow Rule",
+        "body": "Yellow (note-bg) marks invented content and nothing else. When config.placeholder turns off, yellow disappears from the page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Sizes Rule",
+        "body": "Text is 0.875rem or 1.0625rem; 1.5rem is reserved for the brand, the total and the confirmation. Rank comes from weight, capitals and reversal, never from a new size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mkhedruli Never Shouts Rule",
+        "body": "Uppercase and letter-spacing apply only under :lang(en) and :lang(ru). Georgian labels keep their case and spacing and rely on weight and reversal.",
+        "section": "typography"
+      },
+      {
+        "name": "The Only One Floats Rule",
+        "body": "The dock is the only element with a shadow. Stations, plates, pills and fields stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put every orderable item on the red line as a station with the fixed furniture: name, price, ingredients, second-language name, quantity control.",
+      "Do make rank with weight, capitals (en/ru only) and navy reversal, inside the two text sizes (0.875rem, 1.0625rem) and the one display size (1.5rem).",
+      "Do keep circles for stations, rounded squares for termini, pills for controls, 4px plates for sign labels.",
+      "Do keep touch targets at 44px or more and keep the send button in the dock foot within thumb reach.",
+      "Do honour prefers-reduced-motion: smooth scroll, the dot bump and the track animation only run when motion is allowed.",
+      "Do mark every invented value with the yellow sample tag while config.placeholder is true."
+    ],
+    "donts": [
+      "Don't uppercase or letter-space Georgian text.",
+      "Don't introduce photo cards or a floating \"View cart\" pill; the dock and its line are the cart.",
+      "Don't add shadows to in-flow content; only the dock floats.",
+      "Don't use red as a fill for buttons or panels, or green for anything other than open, chosen, copied and send.",
+      "Don't use placeholder yellow for emphasis or decoration.",
+      "Don't add a fourth text size."
+    ]
+  }
+}
