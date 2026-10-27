@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:390px;height:844px;overflow:hidden;background:#21170f;color:#f4e6cf;font-family:Onest,sans-serif}
+header{padding:16px;display:flex;justify-content:space-between;align-items:center}
+.name{font-weight:800;font-size:24px}
+.lang{font-size:13px;opacity:.85}
+h2{font-size:18px;font-weight:800;padding:8px 16px}
+.rail{display:flex;gap:10px;padding:0 16px 14px;overflow:hidden}
+.t{flex:none;width:130px;height:150px;border-radius:10px;background:radial-gradient(circle,#e9b45a 0 35%,#b5452b 36% 55%,#c98c3a 56%);opacity:.6}
+.t.on{width:190px;height:210px;opacity:1;border:3px solid #e0a83c;position:relative}
+.t.on div{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(33,23,15,.95));padding:10px;border-radius:0 0 8px 8px}
+.t.on b{display:block;font-size:17px}
+.t.on span{display:inline-block;margin-top:4px;background:#2f9e5b;color:#fff;font-weight:800;padding:4px 10px;border-radius:999px;font-size:14px}
+.dock{position:absolute;left:12px;right:12px;bottom:14px;background:#2f9e5b;color:#fff;border-radius:12px;padding:15px 16px;display:flex;justify-content:space-between;font-weight:800;font-size:17px}
+</style></head><body>
+<header><span class="name">Pizzeria</span><span class="lang">ქა · EN · RU</span></header>
+<h2>Classics</h2>
+<div class="rail"><div class="t on"><div><b>Margherita · 15 ₾</b><span>− 2 +</span></div></div><div class="t"></div></div>
+<h2>Georgian twist</h2>
+<div class="rail"><div class="t"></div><div class="t"></div><div class="t"></div></div>
+<h2>Drinks</h2>
+<div class="rail"><div class="t"></div><div class="t"></div><div class="t"></div></div>
+<div class="dock"><span>Send on WhatsApp · 3</span><span>49 ₾</span></div>
+</body></html>

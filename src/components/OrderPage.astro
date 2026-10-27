@@ -1,10 +1,10 @@
 ---
-import '@fontsource/onest/400.css';
-import '@fontsource/onest/600.css';
-import '@fontsource/onest/800.css';
+import '@fontsource/rubik/400.css';
+import '@fontsource/rubik/500.css';
+import '@fontsource/rubik/700.css';
 import '@fontsource/noto-sans-georgian/400.css';
+import '@fontsource/noto-sans-georgian/500.css';
 import '@fontsource/noto-sans-georgian/700.css';
-import '@fontsource/noto-sans-georgian/800.css';
 import '../styles/global.css';
 import { config } from '../data/config';
 import { menu } from '../data/menu';
@@ -14,7 +14,7 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-// Second-language name under each dish, like a bilingual station sign.
+// Second-language name under each dish, so staff and visitors share one vocabulary.
 const alt: Lang = lang === 'ka' ? 'en' : 'ka';
 // IBANs read in groups of four; the copy button keeps the unspaced value.
 const groups = (iban: string) => iban.match(/.{1,4}/g) ?? [iban];
@@ -26,7 +26,8 @@ const icon = {
   up: '<path d="M5 12.5 10 7.5l5 5"/>',
   close: '<path d="m5 5 10 10M15 5 5 15"/>',
   copy: '<rect x="7" y="7" width="9" height="9" rx="1.5"/><path d="M13 4.5H5.5A1.5 1.5 0 0 0 4 6v7.5"/>',
-  send: '<path d="M3.5 10h11M10.5 5l5 5-5 5"/>',
+  check: '<path d="m4.5 10.5 3.5 3.5 7.5-8"/>',
+  pin: '<path d="M10 17.5s5.5-4.8 5.5-9a5.5 5.5 0 0 0-11 0c0 4.2 5.5 9 5.5 9Z"/><circle cx="10" cy="8.5" r="2"/>',
   chat: '<path d="M10 3.5a6.5 6.5 0 0 0-5.6 9.8L3.5 16.5l3.3-.9A6.5 6.5 0 1 0 10 3.5Z"/>',
 };
 ---
@@ -36,18 +37,35 @@ const icon = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#14213d" />
+    <meta name="theme-color" content="#c43f1a" />
     <title>{config.name} · {t(lang, 'title')}</title>
     <meta name="description" content={`${t(lang, 'pickupOnly')}. ${t(lang, 'payLine')}.`} />
     {langs.map((l) => <link rel="alternate" hreflang={l} href={new URL(langPath[l], site).href} />)}
+    {
+      lang === 'ka' && (
+        <script is:inline define:vars={{ paths: langPath }}>
+          // First visit to the Georgian home page: follow the browser's languages
+          // (ka, ru, otherwise English). A choice made with the switcher wins.
+          try {
+            var saved = localStorage.getItem('pizzeria.lang');
+            var wanted = saved;
+            if (!wanted) {
+              var prefs = (navigator.languages || [navigator.language || '']).map(function (l) { return l.slice(0, 2).toLowerCase(); });
+              wanted = prefs.find(function (l) { return l === 'ka' || l === 'ru' || l === 'en'; }) || 'en';
+            }
+            if (wanted !== 'ka' && paths[wanted]) location.replace(paths[wanted]);
+          } catch (e) {}
+        </script>
+      )
+    }
   </head>
   <body data-wa={config.whatsapp} data-open={config.hours.open} data-close={config.hours.close} data-prep={config.prepMinutes}>
-    <header class="sign">
-      <div class="sign-row">
-        <a class="brand" href={langPath[lang]}>
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="brand-name">{config.name}</span>
-        </a>
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-title">
+          <h1 id="venue-name">{config.name}</h1>
+          {config.placeholder && <p class="sample">{t(lang, 'nameToCome')}</p>}
+        </div>
         <nav class="lang" aria-label="Language">
           {
             langs.map((l) => (
@@ -58,59 +76,62 @@ const icon = {
           }
         </nav>
       </div>
-      {config.placeholder && <p class="sign-tag">{t(lang, 'nameToCome')}</p>}
-      <p class="status">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed')}>{t(lang, 'open')}</span>
-        <span>· {t(lang, 'ready', { n: config.prepMinutes })}</span>
-        {config.placeholder && <span class="status-tbc">{t(lang, 'statusTbc')}</span>}
-      </p>
-      <p class="sign-meta">{t(lang, 'pickupOnly')} · {t(lang, 'payLine')}</p>
     </header>
 
-    <nav class="cats" aria-label={t(lang, 'menu')}>
+    <section class="venue" aria-labelledby="venue-name">
+      <p class="venue-info">
+        <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed')}>{t(lang, 'open')}</span></span>
+        <span class="chip">{t(lang, 'ready', { n: config.prepMinutes })}</span>
+        <span class="chip">{t(lang, 'pickupOnly')}</span>
+        {
+          config.mapUrl && (
+            <a class="chip chip--link" href={config.mapUrl} target="_blank" rel="noopener">
+              <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.pin} />
+              {t(lang, 'openMap')}
+            </a>
+          )
+        }
+      </p>
+      <p class="venue-pay">{t(lang, 'payLine')}</p>
       {
-        menu.map((c) => (
-          <a href={`#${c.id}`}>
-            {c.name[lang]}
-            <span class="cats-n">{c.items.length}</span>
-          </a>
-        ))
+        config.placeholder && (
+          <p class="venue-samples">
+            <span class="sample">{t(lang, 'statusTbc')}</span>
+            <span class="sample">{t(lang, 'sample')}</span>
+          </p>
+        )
       }
+    </section>
+
+    <nav class="cats" aria-label={t(lang, 'menu')}>
+      <div class="cats-inner">
+        {menu.map((c) => <a href={`#${c.id}`}>{c.name[lang]}</a>)}
+      </div>
     </nav>
 
     <div class="layout">
       <main class="menu">
-        {config.placeholder && <p class="sample">{t(lang, 'sample')}</p>}
         {
           menu.map((c) => (
-            <section class="line-section" id={c.id} aria-labelledby={`h-${c.id}`}>
-              <h2 class="interchange" id={`h-${c.id}`}>
-                <span>{c.name[lang]}</span>
-              </h2>
-              <ul class="stations">
+            <section class="cat" id={c.id} aria-labelledby={`h-${c.id}`}>
+              <h2 id={`h-${c.id}`}>{c.name[lang]}</h2>
+              <ul class="items">
                 {c.items.map((i) => (
-                  <li class="station" data-item={i.id}>
-                    <div class="station-text">
+                  <li class="item" data-item={i.id}>
+                    <div class="item-text">
                       <h3>{i.name[lang]}</h3>
-                      <p class="desc">{i.desc[lang]}</p>
+                      {i.desc[lang] && <p class="desc">{i.desc[lang]}</p>}
                       <p class="alt" lang={alt}>{i.name[alt]}</p>
+                      <p class="price">{price(i.price)}</p>
                     </div>
-                    <div class="station-buy">
-                      <span class="price">{price(i.price)}</span>
-                      <div class="qty" data-qty="0">
-                        <button class="qty-add" type="button" data-add aria-label={t(lang, 'addOne', { name: i.name[lang] })}>
-                          <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.plus} />
-                          <span>{t(lang, 'add')}</span>
-                        </button>
-                        <button class="qty-btn" type="button" data-remove aria-label={t(lang, 'removeOne', { name: i.name[lang] })}>
-                          <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.minus} />
-                        </button>
-                        <output class="qty-n" aria-live="polite" data-count />
-                        <button class="qty-btn" type="button" data-add aria-label={t(lang, 'addOne', { name: i.name[lang] })}>
-                          <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.plus} />
-                        </button>
-                      </div>
+                    <div class="qty" data-qty="0">
+                      <button class="qty-btn qty-remove" type="button" data-remove aria-label={t(lang, 'removeOne', { name: i.name[lang] })}>
+                        <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.minus} />
+                      </button>
+                      <output class="qty-n" aria-live="polite" data-count />
+                      <button class="qty-btn qty-plus" type="button" data-add aria-label={t(lang, 'addOne', { name: i.name[lang] })}>
+                        <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.plus} />
+                      </button>
                     </div>
                   </li>
                 ))}
@@ -120,11 +141,23 @@ const icon = {
         }
 
         <section class="info" aria-labelledby="h-info">
-          <h2 class="interchange interchange--end" id="h-info"><span>{t(lang, 'info')}</span></h2>
+          <h2 id="h-info">{t(lang, 'info')}</h2>
           <dl>
             <div>
               <dt>{t(lang, 'address')}</dt>
-              <dd>{config.address[lang]} · {t(lang, 'pickupOnly')}</dd>
+              <dd>
+                {config.address[lang]} · {t(lang, 'pickupOnly')}
+                {
+                  config.mapUrl && (
+                    <>
+                      {' · '}
+                      <a href={config.mapUrl} target="_blank" rel="noopener">
+                        {t(lang, 'openMap')}
+                      </a>
+                    </>
+                  )
+                }
+              </dd>
             </div>
             <div>
               <dt>{t(lang, 'hours')}</dt>
@@ -153,14 +186,13 @@ const icon = {
 
       <aside class="dock" data-dock data-state="collapsed" aria-labelledby="h-order">
         <button class="dock-bar" type="button" data-toggle aria-expanded="false" aria-controls="order-panel">
-          <span class="track" data-track aria-hidden="true"><span class="track-end"></span></span>
-          <span class="dock-row">
-            <span class="dock-label">
-              <span class="dock-title" id="h-order">{t(lang, 'yourOrder')}</span>
-              <span class="dock-count" data-count-label>{t(lang, 'empty')}</span>
-            </span>
-            <svg class="dock-chev" viewBox="0 0 20 20" aria-hidden="true" set:html={icon.up} />
+          <span class="dock-badge" data-units aria-hidden="true">0</span>
+          <span class="dock-label">
+            <span class="dock-title" id="h-order" data-view={t(lang, 'viewOrder')} data-title={t(lang, 'yourOrder')}>{t(lang, 'yourOrder')}</span>
+            <span class="dock-count" data-count-label>{t(lang, 'empty')}</span>
           </span>
+          <span class="dock-total" data-total>{price(0)}</span>
+          <svg class="dock-chev" viewBox="0 0 20 20" aria-hidden="true" set:html={icon.up} />
         </button>
 
         <div class="panel" id="order-panel" data-panel>
@@ -222,7 +254,7 @@ const icon = {
           </form>
 
           <div class="sent" data-sent hidden tabindex="-1">
-            <span class="sent-terminus" aria-hidden="true"></span>
+            <span class="sent-check" aria-hidden="true"><svg viewBox="0 0 20 20" set:html={icon.check} /></span>
             <h2>{t(lang, 'sentTitle')}</h2>
             <p>{t(lang, 'sentBody')}</p>
             <div class="sent-bank" data-sent-bank></div>

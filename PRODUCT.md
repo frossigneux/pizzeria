@@ -33,6 +33,11 @@ Fast and good value: quick service, fair prices, orders ready on time. The produ
 - Location: Georgia. Prices in GEL (₾).
 - Open decisions: ordering hours, pickup address, the WhatsApp number, and the BOG/TBC account details (IBAN, account holder).
 
+## Brand Commitments
+
+- Visual direction (chosen 2026-10-27 after a first "metro line" design felt cold): the category standard for restaurant ordering, warm and light, executed at Wolt's level of finish. Convention is the commitment: no metaphor layered on top.
+- No food photos until the pizzeria supplies its own; never use stock photos.
+
 ## Evidence on Hand
 
 None yet: no name, logo, menu, prices or photos exist. Placeholders are allowed but must be clearly marked as placeholders. Never present invented names, dishes, prices, reviews or photos as real.

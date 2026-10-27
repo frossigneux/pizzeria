@@ -8,6 +8,8 @@ export const langPath: Record<Lang, string> = { ka: `${base}/`, en: `${base}/en/
 
 const strings = {
   ka: {
+    openMap: 'რუკაზე ნახვა',
+    viewOrder: 'შეკვეთის ნახვა',
     statusTbc: 'სანიმუშო საათები და დრო',
     change: 'შეცვლა',
     hoursTbc: 'საათები დასაზუსტებელია',
@@ -65,6 +67,8 @@ const strings = {
     msgTotal: 'ჯამი',
   },
   en: {
+    openMap: 'Open in Maps',
+    viewOrder: 'View order',
     statusTbc: 'Sample hours and prep time',
     change: 'Change',
     hoursTbc: 'Hours to confirm',
@@ -73,7 +77,7 @@ const strings = {
     nameToCome: 'Name and logo to come',
     open: 'Open now',
     closed: 'Closed · opens at {t}',
-    ready: 'ready in ~{n} min',
+    ready: 'Ready in ~{n} min',
     pickupOnly: 'Pickup only',
     payLine: 'Pay by BOG or TBC transfer, or at pickup',
     sample: 'Sample menu · prices to confirm',
@@ -122,6 +126,8 @@ const strings = {
     msgTotal: 'Total',
   },
   ru: {
+    openMap: 'Открыть на карте',
+    viewOrder: 'Посмотреть заказ',
     statusTbc: 'Пример: часы и время готовки',
     change: 'Изменить',
     hoursTbc: 'Часы уточняются',
@@ -130,7 +136,7 @@ const strings = {
     nameToCome: 'Название и логотип скоро',
     open: 'Открыто',
     closed: 'Закрыто · откроется в {t}',
-    ready: 'готово через ~{n} мин',
+    ready: 'Готово через ~{n} мин',
     pickupOnly: 'Только самовывоз',
     payLine: 'Оплата переводом BOG или TBC, или при получении',
     sample: 'Пример меню · цены уточняются',

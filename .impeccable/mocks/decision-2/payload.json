@@ -1,0 +1,79 @@
+{
+  "title": "Un univers plus chaleureux",
+  "question": "Le tirage a désigné « Enseigne de dukhan peinte ». La garder, prendre une alternative, ou relancer.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Enseigne de dukhan peinte",
+      "kicker": "THE ROLL",
+      "lineage": "Enseignes de tavernes (dukhans) de Tbilissi, peintes sur toile cirée noire : nourriture peinte, lettres à la main, prix",
+      "thesis": "La page est l'enseigne de la taverne : fond toile cirée chaude, pizzas peintes en grand, et la commande s'écrit au pinceau sur le panneau du bas.",
+      "palette": ["#1f1712", "#f2e2c4", "#d9a33a", "#b5452b", "#5f7f3c"],
+      "materials": ["toile cirée noir-brun", "peinture ocre et brique", "lettrage au pinceau"],
+      "viewport": "Enseigne en tête : nom peint en grand, ქა/EN/RU, ouvert/délai ; une grande photo de pizza encadrée comme un tableau ; menu en rangées avec photo ronde, nom, prix peint en ocre ; en bas, le panneau « votre commande » et le bouton vert WhatsApp.",
+      "risk": "Fond sombre : chaleureux par l'ocre et les images, mais moins « lumineux » qu'un fond clair ; les photos d'exemple doivent être remplacées par les vôtres.",
+      "raised": [
+        {"from": "challenger-lexicon", "raise": "Toute la couleur vive vit dans des cadres (photos, prix peints) ; le reste reste sobre pour la lecture."},
+        {"from": "challenger-orienteering", "raise": "Une couleur réservée : le vert ne sert qu'à « dans votre commande » et à l'envoi."},
+        {"from": "challenger-japan", "raise": "Badges d'état stricts et peu nombreux : « exemple », « épuisé », quantité."},
+        {"from": "challenger-specimen", "raise": "Un seul geste (+/−) met à jour en direct le panneau, le total et le message."},
+        {"from": "challenger-saville", "raise": "Rien n'est écrit deux fois : le total vit sur le bouton d'envoi seulement."}
+      ],
+      "html": ".impeccable/mocks/decision-2/assigned.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Fenêtre de la boulangerie tone",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Boulangeries tone : four d'argile, pelles en bois, pain chaud tendu par la fenêtre dans du papier",
+      "thesis": "On commande à la fenêtre du four : fond farine et argile, et le panier est le papier kraft dans lequel on emballe la commande.",
+      "palette": ["#f7efe3", "#c2562b", "#2a1d17", "#d9a441", "#7a8b3a"],
+      "materials": ["argile cuite", "farine", "papier kraft"],
+      "viewport": "Fond clair farine, en-tête terre cuite arrondi comme la bouche du four ; cartes de pizzas avec photo ; le panier en papier kraft en bas avec le bouton WhatsApp.",
+      "risk": "Familier : « boulangerie chaleureuse terre cuite + crème » est l'endroit où atterrissent beaucoup de sites food.",
+      "html": ".impeccable/mocks/decision-2/model-pick.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "challenger-wall",
+      "kind": "challenger",
+      "catalogId": "pop-culture-shelf-streaming-title-card-wall",
+      "label": "Mur de vignettes",
+      "verdict": "competitive",
+      "lineage": "Mur de catalogue en rangées horizontales de vignettes",
+      "thesis": "Chaque catégorie est une rangée de photos qu'on fait glisser ; la pizza touchée grandit et montre prix et bouton.",
+      "palette": ["#21170f", "#f4e6cf", "#e0a83c", "#2f9e5b"],
+      "materials": ["photos plein cadre", "fond brun profond"],
+      "viewport": "Rangées de grandes photos par catégorie, défilement horizontal ; la vignette active s'agrandit avec nom, prix, Ajouter ; panier en bas.",
+      "case": "Très clair et très « appétissant » ; mais dépend entièrement de bonnes photos, et moins ancré en Géorgie.",
+      "risk": "Sans vraies photos, le mur paraît générique.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-streaming-title-card-wall-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/pop-culture-shelf-streaming-title-card-wall.webp",
+      "html": ".impeccable/mocks/decision-2/challenger-wall.html",
+      "htmlFrame": "390x844"
+    },
+    {"id": "challenger-lexicon", "kind": "challenger", "catalogId": "rw-lexicon-shoulder-and-plate", "label": "Page de lexique", "verdict": "declined", "lineage": "Lexique du XIXe siècle à planches colorées", "thesis": "Texte noir, couleur seulement dans des planches encadrées.", "palette": ["#f3ead6", "#1a1a1a", "#c8442b", "#2f7a52"], "materials": ["papier non couché", "chromolithographie"], "viewport": "Colonnes de texte et planches.", "case": "Trop livresque pour commander vite.", "risk": "Froid et austère.", "kept": "La couleur vive vit dans des cadres."},
+    {"id": "challenger-orienteering", "kind": "challenger", "catalogId": "notation-diagram-systems-orienteering-map", "label": "Carte d'orientation", "verdict": "declined", "lineage": "Cartes de course d'orientation", "thesis": "Le parcours en violet par-dessus le terrain.", "palette": ["#ffffff", "#f6d03c", "#8a5a2b", "#a2238f"], "materials": ["encres ISOM", "courbes de niveau"], "viewport": "Carte et légende.", "case": "Encore une métaphore de trajet, l'inverse de ce que vous demandez.", "risk": "Hors sujet.", "kept": "Une couleur réservée à l'état actif."},
+    {"id": "challenger-japan", "kind": "challenger", "catalogId": "japanese-high-density-web", "label": "Web japonais dense", "verdict": "declined", "lineage": "Sites japonais très denses", "thesis": "Modules serrés, onglets rouges.", "palette": ["#ffffff", "#111111", "#e60012", "#d9d9d9"], "materials": ["filets fins", "modules"], "viewport": "Mosaïque de modules.", "case": "Dense et froid ; l'opposé de chaleureux.", "risk": "Surchargé sur téléphone.", "kept": "Badges d'état stricts."},
+    {"id": "challenger-saville", "kind": "challenger", "catalogId": "brand-identity-canon-saville-catalog-sleeve", "label": "Pochette Factory", "verdict": "declined", "lineage": "Pochettes Factory Records", "thesis": "Noir mat, codes couleur à la place des mots.", "palette": ["#111111", "#ffffff", "#e04b2c"], "materials": ["noir mat", "lignes blanches"], "viewport": "Une courbe et un numéro.", "case": "Cryptique : un menu doit se lire, pas se décoder.", "risk": "Illisible.", "kept": "Rien n'est écrit deux fois."},
+    {"id": "challenger-specimen", "kind": "challenger", "catalogId": "variable-font-specimen", "label": "Spécimen variable", "verdict": "declined", "lineage": "Spécimen de police interactif", "thesis": "Un curseur transforme toute la page.", "palette": ["#fafafa", "#111111", "#ff4f00"], "materials": ["papier", "encre"], "viewport": "Une lettre géante.", "case": "Démonstration typographique, pas une commande.", "risk": "Hors sujet.", "kept": "Un seul contrôle met tout à jour en direct."}
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Le standard de la catégorie",
+    "thesis": "Une page de commande de restaurant classique et chaleureuse, exécutée impeccablement.",
+    "palette": ["#fffaf3", "#2b211b", "#e4572e"],
+    "materials": ["photos de plats", "cartes arrondies"],
+    "viewport": "En-tête avec photo, onglets, cartes de pizzas avec photo, panier flottant.",
+    "risk": "Indiscernable de n'importe quelle autre pizzeria.",
+    "html": ".impeccable/mocks/decision-2/canon.html",
+    "htmlFrame": "390x844"
+  },
+  "steer": true
+}

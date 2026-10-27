@@ -9,20 +9,20 @@ related_targets: []
 
 Scope: the single public page: menu → cart → send the order on WhatsApp. Mode: Operate (the visitor's success is a sent order). Phone-first, trilingual (ქა / EN / RU), pickup only, payment by BOG/TBC transfer or at pickup.
 
-Constraints: no backend; every name, dish, price is a marked placeholder until the owner supplies real ones (see the placeholder list in src/data/config.ts).
+Constraints: no backend; menu and settings come from content/*.json; every name, dish, price, hour and IBAN is a marked placeholder while settings.showSampleLabels is true. No photos (user decision): warmth comes from colour, type and shape.
 
-Unresolved: real name and logo, menu and prices, WhatsApp number, IBANs, opening hours, pickup address.
+Replaced: the "Tbilisi metro line" world (navy, signage type, grey tile) was rejected as cold. Treat it as anti-reference.
 
 ## Direction contract
 
-THESIS: The order is a metro journey. Each pizza you add becomes a station on a red line, and the total sits at the green terminus beside the WhatsApp button. Refuses the category default of photo cards and a floating orange "View cart" pill.
+THESIS: A restaurant ordering page exactly as people expect it from Wolt, warm and light, with nothing to learn. Refuses metaphor and refuses cold UI: no navy, no grey ground, no signage capitals.
 
-OWN-WORLD: Tbilisi metro wayfinding. Night-navy enamel sign panels with white type, a red line, a green line/terminus, station-tile off-white ground. Round line dots, pill controls with 2px navy borders. Two text sizes plus one display size; rank comes from weight, capitals and reversal (white on navy). Integer step scale. Onest for Latin/Cyrillic, Noto Sans Georgian for Mkhedruli.
+OWN-WORLD: Warm white ground (#fffaf3) with ink brown text, tomato red as the single brand accent: #e4572e for the active-tab underline and focus, #c43f1a (tomato-strong) wherever white text sits on it (header band, order bar, filled quantity pill), for contrast. Green only for positive states: "Open now", "Send on WhatsApp" and the sent confirmation. Rounded friendly sans (Rubik for Latin/Cyrillic, Noto Sans Georgian), sentence case. Soft rounded cards (14–16px radii; 16px for cards and the sheet) with gentle warm shadows, round + buttons.
 
-STORY: The visitor sees immediately that it is open, the wait time, and how to pay, then picks pizzas with +/−. The line and the total update live, and one tap on the green bar opens WhatsApp with the order already written. After sending, BOG/TBC details stay one tap away to copy.
+STORY: The visitor sees the pizzeria, that it is open, the wait time and how to pay, scans the dishes, taps + on what they want, opens the order from the floating bar, adds their name and sends it on WhatsApp.
 
-FIRST VIEWPORT: Navy sign header (M-dot + name, ქა/EN/RU switch, open status + ready time + payment line). Sticky category pills showing their counts. The menu as a vertical red line, each pizza a station row with fixed furniture: name, ingredients, Georgian name, ₾ price, Add / −n+ control. A navy dock pinned to the bottom: the cart line (one dot per pizza, green terminus), item count, pickup time, payment choice, and the green "Send on WhatsApp · ₾ total" button within thumb reach.
+FIRST VIEWPORT: A tomato header band carrying the pizzeria name at display size and the ქა/EN/RU switch. A white info card overlaps its bottom edge with the chips (open · ~20 min · pickup only), the payment line and any sample disclosures. Sticky tabs with an underline for the active category. Item rows: name, description, price on the left, round + button on the right (becomes −n+). A floating tomato "View order · n · ₾ total" bar at the bottom.
 
-FORM: Tbilisi metro line signage, candidate 6 of 7 on the grounded list; seed:d6dff343574a88f3. Signature move: the live cart line in the dock; a single +/− control updates the line, the total and the WhatsApp message.
+FORM: The category standard (canon), chosen by the user over the roll; seed:14b099307dfac0bf. Craft bar: Wolt.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

@@ -63,6 +63,78 @@
         ],
         "createdAt": "2026-10-27T15:30:11.636Z",
         "reason": "Agent: spent decision-round sketches of unchosen directions (own fonts by design), not shipped UI"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision-2/*.html"
+        ],
+        "createdAt": "2026-10-27T15:57:55.906Z",
+        "reason": "Agent: decision-round sketches, not shipped UI"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision-2/*.html"
+        ],
+        "createdAt": "2026-10-27T15:57:55.922Z",
+        "reason": "Agent: decision-round sketches, not shipped UI"
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision-2/*.html"
+        ],
+        "createdAt": "2026-10-27T15:57:55.936Z",
+        "reason": "Agent: decision-round sketches, not shipped UI"
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision-2/*.html"
+        ],
+        "createdAt": "2026-10-27T15:57:55.950Z",
+        "reason": "Agent: decision-round sketches, not shipped UI"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision-2/*.html"
+        ],
+        "createdAt": "2026-10-27T15:57:55.963Z",
+        "reason": "Agent: decision-round sketches, not shipped UI"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision-2/*.html"
+        ],
+        "createdAt": "2026-10-27T15:57:55.975Z",
+        "reason": "Agent: decision-round sketches, not shipped UI"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "src/**"
+        ],
+        "createdAt": "2026-10-27T16:12:15.352Z",
+        "reason": "User chose the canon card whose ground is #fffaf3 (decision round 2026-10-27)"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dist/**"
+        ],
+        "createdAt": "2026-10-27T16:12:15.367Z",
+        "reason": "Build output of the user-chosen canon palette"
       }
     ]
   }

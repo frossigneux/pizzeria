@@ -1,287 +1,288 @@
 ---
 name: Pizzeria (placeholder name)
-description: Phone-first pickup ordering page, drawn as a Tbilisi metro line where every pizza is a station and the total waits at the green terminus.
+description: Warm, light pickup ordering page in the restaurant-app category standard; menu to WhatsApp order in a few taps.
 colors:
-  navy: "#14213d"
-  navy-2: "#1e2d52"
-  navy-3: "#2c3d66"
-  red: "#d62828"
+  tomato: "#e4572e"
+  tomato-strong: "#c43f1a"
+  tomato-soft: "#fde6dc"
   green: "#1f7a47"
-  green-lit: "#3fbf7a"
-  tile: "#eceff3"
-  tile-2: "#dde2e9"
-  rule: "#cbd2dc"
-  ink: "#14213d"
-  ink-2: "#4a5470"
-  on-navy: "#ffffff"
-  on-navy-2: "#c3cae0"
-  note-bg: "#fff1bf"
-  note-ink: "#5a4500"
+  green-strong: "#186239"
+  green-soft: "#e1f2e7"
+  note-bg: "#fff0c2"
+  note-ink: "#6a4d00"
   error: "#b3261e"
-  error-on-navy: "#ffb4ab"
+  bg: "#fffaf3"
+  surface: "#ffffff"
+  surface-2: "#fbf1e6"
+  line: "#efe2d2"
+  line-strong: "#e2d1bc"
+  ink: "#2b211b"
+  ink-2: "#6e5f53"
 typography:
   display:
-    fontFamily: "Onest, Noto Sans Georgian, system-ui, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 800
-    lineHeight: 1.2
+    fontFamily: "Rubik, Noto Sans Georgian, system-ui, sans-serif"
+    fontSize: "1.875rem"
+    fontWeight: 700
+    lineHeight: 1.1
+    letterSpacing: "-0.01em"
+  headline:
+    fontFamily: "Rubik, Noto Sans Georgian, system-ui, sans-serif"
+    fontSize: "1.375rem"
+    fontWeight: 700
+    lineHeight: 1.25
   title:
-    fontFamily: "Onest, Noto Sans Georgian, system-ui, sans-serif"
+    fontFamily: "Rubik, Noto Sans Georgian, system-ui, sans-serif"
     fontSize: "1.0625rem"
-    fontWeight: 800
+    fontWeight: 500
     lineHeight: 1.3
   body:
-    fontFamily: "Onest, Noto Sans Georgian, system-ui, sans-serif"
+    fontFamily: "Rubik, Noto Sans Georgian, system-ui, sans-serif"
     fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.45
-    fontFeature: "\"tnum\" 1"
-  body-small:
-    fontFamily: "Onest, Noto Sans Georgian, system-ui, sans-serif"
-    fontSize: "0.875rem"
     fontWeight: 400
     lineHeight: 1.45
   label:
-    fontFamily: "Onest, Noto Sans Georgian, system-ui, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 800
+    fontFamily: "Rubik, Noto Sans Georgian, system-ui, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 500
     lineHeight: 1.45
-    letterSpacing: "0.06em"
+  caption:
+    fontFamily: "Rubik, Noto Sans Georgian, system-ui, sans-serif"
+    fontSize: "0.8125rem"
+    fontWeight: 400
+    lineHeight: 1.45
 rounded:
-  plate: "4px"
-  terminus: "6px"
-  field: "8px"
-  action: "10px"
-  dock: "16px"
+  s: "10px"
+  m: "14px"
+  l: "16px"
   pill: "999px"
-  dot: "50%"
 spacing:
-  sp-1: "4px"
-  sp-2: "8px"
-  sp-3: "12px"
-  sp-4: "16px"
-  sp-5: "24px"
-  sp-6: "32px"
-  sp-7: "48px"
+  "1": "4px"
+  "2": "8px"
+  "3": "12px"
+  "4": "16px"
+  "5": "24px"
+  "6": "32px"
+  "7": "48px"
 components:
-  category-pill:
-    backgroundColor: "{colors.on-navy}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0 12px 0 16px"
-    height: "40px"
-  category-pill-active:
-    backgroundColor: "{colors.navy}"
-    textColor: "{colors.on-navy}"
-  interchange-plate:
-    backgroundColor: "{colors.navy}"
-    textColor: "{colors.on-navy}"
-    typography: "{typography.label}"
-    rounded: "{rounded.plate}"
-    padding: "8px 12px"
-  qty-add:
-    backgroundColor: "{colors.on-navy}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0 16px 0 12px"
-    height: "48px"
-  qty-add-hover:
-    backgroundColor: "{colors.tile-2}"
-  qty-stepper:
-    backgroundColor: "{colors.navy}"
-    textColor: "{colors.on-navy}"
-    rounded: "{rounded.pill}"
-    height: "48px"
-  qty-stepper-hover:
-    backgroundColor: "{colors.navy-3}"
-  field-input:
-    backgroundColor: "{colors.on-navy}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    rounded: "{rounded.field}"
-    padding: "12px"
-    height: "48px"
-  pay-option:
-    textColor: "{colors.on-navy}"
-    rounded: "{rounded.field}"
-    padding: "0 12px"
-    height: "48px"
-  pay-option-checked:
-    backgroundColor: "{colors.navy-2}"
-  button-send:
-    backgroundColor: "{colors.green}"
-    textColor: "{colors.on-navy}"
+  order-bar:
+    backgroundColor: "{colors.tomato-strong}"
+    textColor: "{colors.surface}"
     typography: "{typography.title}"
-    rounded: "{rounded.action}"
+    rounded: "{rounded.m}"
     padding: "0 16px"
+    height: "60px"
+  send-button:
+    backgroundColor: "{colors.green}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.m}"
+    padding: "0 24px"
     height: "56px"
-  button-send-hover:
-    backgroundColor: "#1a6a3d"
-  button-ghost:
-    textColor: "{colors.on-navy}"
+  send-button-hover:
+    backgroundColor: "{colors.green-strong}"
+  ghost-button:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
     padding: "0 16px"
     height: "44px"
-  button-ghost-hover:
-    backgroundColor: "{colors.navy-3}"
-  order-dock:
-    backgroundColor: "{colors.navy}"
-    textColor: "{colors.on-navy}"
-    rounded: "{rounded.dock}"
-    width: "380px"
-  sample-tag:
+  qty-add:
+    backgroundColor: "{colors.tomato-soft}"
+    textColor: "{colors.tomato-strong}"
+    rounded: "{rounded.pill}"
+    size: "44px"
+  qty-filled:
+    backgroundColor: "{colors.tomato-strong}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.pill}"
+    height: "44px"
+  chip:
+    backgroundColor: "{colors.surface-2}"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "4px 12px"
+  chip-status-open:
+    backgroundColor: "{colors.green-soft}"
+    textColor: "{colors.green-strong}"
+    rounded: "{rounded.pill}"
+    padding: "4px 12px"
+  sample-note:
     backgroundColor: "{colors.note-bg}"
     textColor: "{colors.note-ink}"
-    typography: "{typography.body-small}"
-    rounded: "{rounded.plate}"
+    typography: "{typography.caption}"
+    rounded: "6px"
     padding: "2px 8px"
+  card:
+    backgroundColor: "{colors.surface}"
+    rounded: "{rounded.l}"
+    padding: "16px 24px"
+  input:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.s}"
+    padding: "12px 16px"
+    height: "50px"
+  pay-option-selected:
+    backgroundColor: "{colors.tomato-soft}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.s}"
+    height: "52px"
 ---
 
-# Design System: Pizzeria
+# Design System: Pizzeria (placeholder name)
 
 ## Overview
 
-**Creative North Star: "The Red Line to Pickup"**
+**Creative North Star: "The Warm Counter"**
 
-The page is Tbilisi metro wayfinding applied to an order. Night-navy enamel sign panels carry white type; a red line runs down the menu with each pizza as a station on it; the order dock repeats that line in miniature, one dot per pizza, ending at a green square terminus beside the send button. The ground is the pale station tile. Nothing is photographic; the line, the dots and the reversed plates carry the whole identity.
+This is the restaurant-ordering category standard, built to the finish of a good delivery app and kept warm. Nobody has to learn anything: a tomato header band names the pizzeria, a white venue card overlaps its lower edge with the open status and how to pay, sticky tabs underline the current category, and dish rows carry a round plus button on the right. A floating tomato bar holds the order on phones and opens into a bottom sheet; on desktop the same order stands as a sticky sidebar beside the menu. Convention is the commitment. No metaphor sits on top of it.
 
-Density is that of a transit sign: tight, fixed furniture per row (name, price, ingredients, second-language name, quantity control), a single column of content on phones, the order panel standing beside the line on desktop. Rank never comes from size. There are two text sizes and one display size; hierarchy is made with weight (400 / 600 / 800), capitals (Latin and Cyrillic only) and reversal (white on navy).
+The warmth comes from colour, type and shape, not from imagery. The ground is a warm white, text is ink brown rather than black, shadows are tinted brown, and every interactive edge is rounded. Density is moderate: rows breathe at 16px and secondary text drops to a muted brown. The page uses no photos (the user's decision) and must never use stock food photography.
 
-The system is trilingual (Georgian, English, Russian) and must read the same in all three. Georgian Mkhedruli has no case, so the system never asks it to shout. Every name, dish, price, hour, IBAN and phone number is currently a placeholder and is marked as such with the yellow sample tag.
+The page carries three languages. Georgian, English and Russian get equal care: Georgian runs in Noto Sans Georgian, Latin and Cyrillic run in Rubik, and every string is in sentence case.
 
 **Key Characteristics:**
-- Navy sign header, tile ground, one red line, one green terminus.
-- Round dots are stations; rounded squares are termini; pills are controls; 4px plates are sign labels.
-- Two text sizes plus one display size; rank by weight, case and reversal.
-- Flat, in-flow content; only the order dock floats.
-- Tabular numerals everywhere so prices and counts do not jitter.
+- Warm white ground, ink-brown text, one tomato accent family.
+- Green used only for positive outcomes.
+- Soft rounded cards (14 to 16px) with brown-tinted ambient shadows; pills for chips and small buttons.
+- Round + becomes a filled − n + pill once the dish is in the order.
+- Floating order bar on phones becomes a bottom sheet; a sticky sidebar on desktop at 960px and up.
+- Placeholder content is disclosed with yellow note chips, never presented as real.
 
 ## Colors
 
-A transit palette: one deep navy family for signs and the dock, one red for the line, one green for the destination, on cool off-white tile.
+A warm-paper palette: cream and brown neutrals, one tomato accent in three strengths, a reserved green for success, and yellow kept for honesty notes.
 
 ### Primary
-- **Night Enamel Navy** (navy): the sign header, the interchange plates, the order dock, the active category pill, the filled quantity stepper, text selection. Also the body ink (ink carries the same value as a separate token for text).
-- **Enamel Navy, raised** (navy-2): surfaces inside navy, such as the language switch track, the checked payment option, the bank details box, the stepper inside the dock.
-- **Enamel Navy, edge** (navy-3): rules and borders inside the dock, unchecked payment option borders, hover fill for controls on navy, the dashed empty track.
+- **Tomato** (tomato): the brand accent where it carries no text. Draws the active-tab underline, the focus ring, input focus borders, the caret and the selected payment option's border. Also the page's `theme-color`.
+- **Deep Tomato** (tomato-strong): wherever white text or white glyphs sit on tomato: the header band, the floating order bar, the filled quantity pill. Also tomato-coloured text on light ground: a price once its dish is in the order, the active language in the switcher, the "edit" link in the order footer, the checked radio dot. Its hover step darkens to #b13814 on the order bar.
+- **Tomato Blush** (tomato-soft): resting ground of the round + button, the selected payment option fill, the input focus halo, text selection, and the closed-status chip.
 
 ### Secondary
-- **Line Red** (red): the metro line (6px vertical rule, 4px rule under the category bar, 5px dock track), station dot rings and filled stations, the brand dot, the active count badge, and the global focus ring (3px outline).
+- **Basil Green** (green): the WhatsApp send button and the sent confirmation's check glyph. **Deep Basil** (green-strong) is its hover state and the text colour of the "Open now" chip and copied-IBAN state. **Basil Mist** (green-soft) is the ground of the open-status chip and the sent check circle.
 
 ### Tertiary
-- **Terminus Green** (green): the send button only; the end of the journey.
-- **Signal Green** (green-lit): small lit signals on navy: the open status dot, the terminus square, the checked radio, the copied state.
+- **Note Yellow** (note-bg) with **Note Ink** (note-ink): placeholder disclosures only ("Name and logo to come", "Sample menu", sample IBAN). They render only while `config.placeholder` / `settings.showSampleLabels` is on.
+- **Error Red** (error): invalid-field border, error hint, form error line.
 
 ### Neutral
-- **Station Tile** (tile): page ground and the sticky category bar.
-- **Tile Shadow** (tile-2): count badges, hover fill on light controls.
-- **Grout Line** (rule): 1px dividers between stations.
-- **Ink** (ink) and **Muted Ink** (ink-2): primary text and secondary text (ingredients, second-language names, info labels) on tile.
-- **Sign White** (on-navy) and **Sign White, dimmed** (on-navy-2): text on navy, and the white fill of pills, station dots and fields.
-- **Placeholder Yellow** (note-bg, with note-ink text): placeholder marks only.
-- **Error Red** (error) and **Error on Navy** (error-on-navy): the invalid-field ring, and error text inside the dock.
+- **Warm Paper** (bg): page ground and the sticky tab strip.
+- **White** (surface): cards, the venue card, the order sheet and sidebar, inputs, ghost buttons.
+- **Crust** (surface-2): neutral chips, the bank details panel, quantity pills inside the order list.
+- **Flour Line** (line): row dividers, the tab strip's bottom rule, sheet header and footer rules.
+- **Dough Line** (line-strong): 1.5px borders on inputs, payment options and ghost buttons; resting radio rings; scrollbar thumb.
+- **Ink Brown** (ink): all primary text.
+- **Cocoa** (ink-2): descriptions, second-language dish names, hints, inactive tabs, the payment line.
 
 ### Named Rules
-**The Line Rule.** Red belongs to the line and to what sits on it: the line itself, station dots, the cart track, the active count, the focus ring. It is never the fill of a button, panel or text block.
+**The White-On-Strong Rule.** White text never sits on Tomato (#e4572e). Any tomato fill that carries text or glyphs uses Deep Tomato, for contrast. Tomato itself is reserved for lines, rings and borders.
 
-**The Terminus Rule.** Green means arrival: open, chosen, copied, send. The send button is the only large green surface on the page.
+**The Green Means Done Rule.** Green appears only for positive states: "Open now", "Send on WhatsApp", the copied confirmation and the sent confirmation. It is never decoration and never a second brand colour.
 
-**The Placeholder Yellow Rule.** Yellow (note-bg) marks invented content and nothing else. When config.placeholder turns off, yellow disappears from the page.
+**The Yellow Is Honesty Rule.** Note Yellow is only for placeholder disclosures. When the placeholder flags are off, no yellow remains on the page.
 
 ## Typography
 
-**Display Font:** Onest (with Noto Sans Georgian, system-ui)
-**Body Font:** Onest for Latin and Cyrillic; Noto Sans Georgian for Mkhedruli (under :lang(ka) the stack flips to Noto Sans Georgian first)
+**Display Font:** Rubik (with Noto Sans Georgian, system-ui, sans-serif)
+**Body Font:** Rubik (same stack)
+**Georgian:** Noto Sans Georgian leads the stack on `:lang(ka)` pages, with Rubik behind it.
 
-**Character:** A plain, sturdy grotesque that reads like station signage in both scripts. Onest ships at 400 / 600 / 800; Noto Sans Georgian at 400 / 700 / 800.
+**Character:** A rounded, friendly grotesque paired with Georgian glyphs of matching weight. Both are self-hosted in 400, 500 and 700. The pairing reads soft and plain and never shouts.
 
 ### Hierarchy
-- **Display** (800, 1.5rem, 1 to 1.2): the brand name, the send total, the sent confirmation heading. Nothing else.
-- **Title** (800, 1.0625rem, 1.3): dish names, prices, the dock title, section names on the interchange plate in Georgian.
-- **Body** (400 / 600, 1.0625rem, 1.45): base text, info values, order lines. Tabular numerals globally.
-- **Body small** (400 / 600, 0.875rem): ingredients, second-language names, hints, meta lines, language switch.
-- **Label** (800, 0.875rem, 0.06em tracking, uppercase in en/ru only): interchange plates, field labels, pill and button text.
+- **Display** (700, 1.875rem, rising to 2.75rem at 960px and up, 1.1, -0.01em): the pizzeria name in the header band only.
+- **Headline** (700, 1.375rem, 1.25): category headings, the info heading, the open sheet's title, the sent confirmation heading.
+- **Title** (500, 1.0625rem, 1.3): dish names, tab labels, prices, order-line names; 700 for the order bar title and total.
+- **Body** (400, 1.0625rem, 1.45): base text. Numerals are tabular everywhere (`font-variant-numeric: tabular-nums`) so prices align.
+- **Label** (400 to 500, 0.9375rem): descriptions, chips, field labels, the language switch, ghost buttons, the payment line.
+- **Caption** (400 to 500, 0.8125rem): second-language dish names, field hints, account holder, sample notes.
 
 ### Named Rules
-**The Two Sizes Rule.** Text is 0.875rem or 1.0625rem; 1.5rem is reserved for the brand, the total and the confirmation. Rank comes from weight, capitals and reversal, never from a new size.
+**The Sentence Case Rule.** Every string is in sentence case, in all three languages. No uppercase labels, no tracked-out capitals.
 
-**The Mkhedruli Never Shouts Rule.** Uppercase and letter-spacing apply only under :lang(en) and :lang(ru). Georgian labels keep their case and spacing and rely on weight and reversal.
+**The Three Weights Rule.** The system uses only 400, 500 and 700. Hierarchy comes from size and weight steps, not from colour or case.
 
 ## Layout
 
-Phone first. A single column: sign header, sticky category bar (scrolls horizontally, red 4px rule underneath), then the menu line with 16px side padding. The line sits on a fixed axis (line-x, 26px) and content is indented from it by line-x plus 16px. The order dock is pinned to the bottom of the viewport, collapsed to its track, title, meta line and send button, and the body reserves 220px at the bottom so nothing hides under it. Safe-area insets are honoured on header and dock.
+Phone-first, one column. Content sits in a 1120px max container with 16px side gutters. The header band is full-bleed tomato; the venue card is pulled up over its bottom edge (-24px, -32px on desktop), so the brand band and the venue facts read as one unit. Category tabs stick to the top of the viewport, with a 24px gap between labels and horizontal scrolling and no visible scrollbar on narrow screens.
 
-At 960px and above, the content is centred at 1120px max; the menu line and the dock sit side by side in a grid (fluid column plus a 380px dock, 32px gap). The dock becomes a sticky panel (top 84px) that is always open. Header and category bar paddings align to the same 1120px column.
+Menu rows are flex: text on the left (name, description, second-language name, price), the quantity control on the right. Rows are separated by 1px rules with 16px vertical padding. Categories are spaced by 32px. Body bottom padding (96px plus the safe area) keeps the last row clear of the floating bar.
 
-Spacing is an integer step scale (4, 8, 12, 16, 24, 32, 48). Station rows use 16px vertical padding; section interchanges get 32px above. Touch targets are at least 44px (language links 44 by 36).
+The spacing scale is 4, 8, 12, 16, 24, 32, 48px. 16px is the default rhythm, and 24px is the inner padding of cards and the sheet.
+
+At 960px and up, the layout becomes a two-column grid: the menu column plus a 380px order sidebar with a 32px gap. The sidebar is sticky 72px from the top, and its height is capped at the viewport. The scrim, the chevron and the collapsed meta line are hidden there. Safe-area insets are honoured at the top of the header and the bottom of the bar and sheet. The touch-target floor is 44px.
 
 ## Elevation & Depth
 
-Flat by default. Depth is carried by reversal (navy panels on tile) and by tonal steps within navy (navy, navy-2, navy-3), not by shadow. The single exception is the order dock, which floats over or beside the line and carries a soft ambient shadow; on mobile, an open dock dims the page with a 40% black scrim.
+A light hybrid. The page is mostly flat and tonal (paper ground, white surfaces, crust panels). Shadows appear only on the few things that float above the menu, and they are always tinted warm brown, never neutral grey.
 
 ### Shadow Vocabulary
-- **Dock lift, mobile** (`box-shadow: 0 -6px 24px rgb(0 0 0 / 0.22)`): the bottom-pinned dock.
-- **Dock lift, desktop** (`box-shadow: 0 10px 30px rgb(0 0 0 / 0.18)`): the sticky side dock.
+- **Card** (`box-shadow: 0 6px 24px rgb(92 52 24 / 0.1), 0 1px 3px rgb(92 52 24 / 0.08)`): the venue card, the info card and the desktop order sidebar.
+- **Bar** (`box-shadow: 0 10px 28px rgb(92 52 24 / 0.28)`): the floating order bar on phones.
+- **Sheet** (`box-shadow: 0 -10px 30px rgb(92 52 24 / 0.18)`): the open bottom sheet, cast upward.
+- **Scrim** (`rgb(43 33 27 / 0.45)`): an ink-brown dim behind the open sheet.
 
 ### Named Rules
-**The Only One Floats Rule.** The dock is the only element with a shadow. Stations, plates, pills and fields stay flat.
+**The Warm Shadow Rule.** Every shadow and scrim is tinted from the brown family (rgb 92 52 24 or the ink). Neutral black or grey shadows don't belong in this world.
 
 ## Shapes
 
-Shape carries meaning, as on a metro map. Circles are stations: station dots (18px, 4px red ring, filled red when in the order), interchange dots (26px, 5px navy ring), track dots in the dock, status and brand dots. Rounded squares are termini: the end-of-line marker on the info section (green ring, 6px radius), the track end (22px, 6px radius) and the sent terminus (34px, 8px radius). Pills (999px) are controls: category pills, the quantity control, copy and ghost buttons. Small 4px plates are sign labels: interchange names, sample tags, the "name to come" tag. Fields and the payment options use 8px; the send button 10px; the dock 16px (top corners only on mobile).
-
-Borders are 2px solid for controls (navy on tile, navy-3 or dimmed white on navy) and 1px for dividers.
+Everything is soft. Cards and the sheet use 16px, the order bar and send button use 14px, and inputs, payment options and the bank panel use 10px. Chips, the language switch, quantity controls, ghost and copy buttons are full pills (999px). The + button is a 44px circle. Sample notes use a small 6px radius so they read as notes, not controls. The bottom sheet rounds only its top corners. The active-tab underline is 3px with rounded top ends. Borders are 1.5px on interactive fields and 1px on dividers. Icons are inline 20px stroke SVGs (2.2 stroke, round caps and joins) that inherit `currentColor`.
 
 ## Components
 
 ### Buttons
-- **Send (primary):** full-width terminus-green bar, 56px tall, 10px radius, white 800 text, chat icon at left, display-size total at right. Hover darkens to a deeper green. Lives in the dock foot so it never scrolls away.
-- **Ghost:** pill, 44px, 2px dimmed-white border on navy, 800 small text; hover fills navy-3. Used for the after-send actions.
-- **Copy:** ghost pill with an icon; on success the border and text turn signal green.
-- **Focus:** every focusable element gets the global 3px red outline, 2px offset.
+- **Order bar (primary on phones):** a Deep Tomato fill with white text. It is 60px tall with a 14px radius and the Bar shadow. Inside: a white count badge (28px pill, Deep Tomato numerals), the title in 700, and the total right-aligned. On hover it darkens to #b13814. When an item is added, it gives a short 1.03 scale bump with `cubic-bezier(0.16, 1, 0.3, 1)`, only when reduced motion is not requested.
+- **Send on WhatsApp:** a full-width Basil Green fill with white 700 text and a chat glyph, the label on the left and the total on the right. It is 56px tall with a 14px radius and darkens to Deep Basil on hover.
+- **Ghost / Copy:** a white pill with a 1.5px Dough Line border and 500 label text, 44px tall. On hover the border darkens to Cocoa. The copy button turns its border green and its text Deep Basil once copied.
+
+### Quantity control (signature)
+- **Resting:** a 44px Tomato Blush circle holding a Deep Tomato +.
+- **In the order:** it grows into a Deep Tomato pill with white − n + (count in 700), and the row's price turns Deep Tomato. Hover on its buttons is a translucent white wash. Inside the order list the pill is 40px, on Crust, with ink glyphs.
 
 ### Chips
-- **Category pill:** white pill with a 2px navy border, 40px tall, 600 small text and a round count badge (tile-2). Active (the section in view) reverses to navy with a red count badge.
-- **Language switch:** a navy-2 track with three 44 by 36 segments; the current language is a white segment with navy text.
+- **Neutral:** Crust ground, ink text, 30px pill, 4px 12px.
+- **Status:** a Basil Mist ground with Deep Basil text and a leading 8px dot. When closed, it switches to Tomato Blush with Deep Tomato.
+- **Sample note:** Note Yellow with Note Ink, caption size, 500, 6px radius. It renders only under the placeholder flags.
 
 ### Cards / Containers
-There are no cards. Dishes are station rows on the line, divided by 1px grout rules. The containers that exist are the navy dock and, inside it, the navy-2 bank box (8px radius, 12px padding).
+- **Corner Style:** 16px for the venue card, the desktop sidebar and the sheet; 14px for the info card.
+- **Background:** White on the Warm Paper ground. Nested panels (bank details) use Crust.
+- **Shadow Strategy:** the Card shadow (see Elevation & Depth).
+- **Border:** none. Separation comes from the shadow and the tone.
+- **Internal Padding:** 16px 24px on phones and 24px 32px on desktop for the venue card; 24px for the info card and the sheet panel.
 
 ### Inputs / Fields
-- **Style:** white field on navy, 2px white border, 8px radius, 48px minimum height, text at least 16px to stop iOS zoom, red caret. Select uses a custom navy chevron.
-- **Labels:** label style (800, small, caps in en/ru), with optional markers back to 400 and dimmed.
-- **Error:** the invalid field gets a 2px error-red ring; the hint below turns to error-on-navy at 600.
-- **Payment options:** 48px rows with a 2px navy-3 border; checked rows get a white border and navy-2 fill, and the radio becomes a white dot in a thick signal-green ring.
+- **Style:** a White fill with a 1.5px Dough Line border and a 10px radius, 50px minimum height, 12px 16px padding, and a font size of at least 16px (no iOS zoom). Labels sit above in 500 label size; optional markers are 400 Cocoa. Hints are Cocoa captions.
+- **Focus:** a Tomato border plus a 3px Tomato Blush halo, with a Tomato caret.
+- **Error:** an Error Red border with a 12% red halo; the hint turns Error Red in 500.
+- **Select:** native appearance removed, with an inline ink chevron SVG on the right.
+- **Payment options:** 52px rows with a 1.5px border and a 10px radius, and a custom 20px radio. When selected, the row gets a Tomato border and a Tomato Blush fill, and the radio a 6px Deep Tomato ring.
 
 ### Navigation
-The sign header (brand dot, name, language switch, open status with a lit dot, ready time, pickup and payment line) and the sticky category bar. Anchors scroll smoothly only when reduced motion is not requested.
+- **Category tabs:** labels in 500 at title size, Cocoa at rest and Ink when current. The current tab gets a 3px Tomato underline that grows from the centre (scaleX, 0.25s ease-out). The strip sticks to the top on Warm Paper with a 1px Flour Line rule and is at least 52px tall.
+- **Language switch:** a pill group outlined by a translucent white inset ring on the header band. Each option is at least 44 by 36px. The current option is White with Deep Tomato text.
 
-### Quantity Control (signature)
-One control per dish, a 48px pill with a 2px navy border. At zero it is a white "+ Add" pill. Once a pizza is in the order it reverses to navy and splits into minus, count and plus (44px buttons, navy-3 hover); the station dot fills red and bumps (scale 1.35, 0.4s). In the dock the same control sits on navy-2 at 44px.
-
-### Order Dock and Cart Track (signature)
-The dock opens with the cart track: a 5px red line with one white-and-red dot per pizza (overflow collapses to a count), ending at a green rounded-square terminus. Empty, the line turns to a dashed navy-3 track and the terminus goes navy-3. New dots slide in (0.45s, ease-out). Below: title and item count, order lines, the form, then the fixed foot with the meta line (pickup time and payment, with an underlined "change") and the send bar. The chevron rotates 180 degrees when opened.
-
-### Sample Tag
-A yellow 4px plate with dark brown text, placed next to anything invented (menu, hours, IBAN, status). Gated by config.placeholder.
+### Order sheet (signature)
+On phones, the bar opens into a bottom sheet (max 90dvh, 16px top corners, Sheet shadow, 32px slide-up with ease-out). The header grows to 72px, shows the title at headline size with an item count, and uses a chevron to close. The body scrolls inside the sheet. The footer holds a meta line with a Deep Tomato "edit" link above the send button. At 960px and up, the same element is a sticky white sidebar card.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** put every orderable item on the red line as a station with the fixed furniture: name, price, ingredients, second-language name, quantity control.
-- **Do** make rank with weight, capitals (en/ru only) and navy reversal, inside the two text sizes (0.875rem, 1.0625rem) and the one display size (1.5rem).
-- **Do** keep circles for stations, rounded squares for termini, pills for controls, 4px plates for sign labels.
-- **Do** keep touch targets at 44px or more and keep the send button in the dock foot within thumb reach.
-- **Do** honour prefers-reduced-motion: smooth scroll, the dot bump and the track animation only run when motion is allowed.
-- **Do** mark every invented value with the yellow sample tag while config.placeholder is true.
+- **Do** put white text only on Deep Tomato (#c43f1a) or Basil Green, never on Tomato (#e4572e).
+- **Do** reserve green for positive states: open, send, copied, sent.
+- **Do** tint every shadow and scrim warm brown.
+- **Do** keep every string in sentence case and use only the 400, 500 and 700 weights.
+- **Do** let Noto Sans Georgian lead the font stack on Georgian pages.
+- **Do** disclose placeholder content with yellow sample notes gated by the placeholder flags, and drop them once real content lands.
+- **Do** keep touch targets at 44px or larger and form text at 16px or larger.
+- **Do** use inline stroke SVG icons in `currentColor` at 20px.
 
 ### Don't:
-- **Don't** uppercase or letter-space Georgian text.
-- **Don't** introduce photo cards or a floating "View cart" pill; the dock and its line are the cart.
-- **Don't** add shadows to in-flow content; only the dock floats.
-- **Don't** use red as a fill for buttons or panels, or green for anything other than open, chosen, copied and send.
-- **Don't** use placeholder yellow for emphasis or decoration.
-- **Don't** add a fourth text size.
+- **Don't** bring back the replaced metro world: no navy, no grey ground, no signage capitals.
+- **Don't** use stock or invented food photos. Photos arrive only when the pizzeria supplies its own.
+- **Don't** add a second accent hue or use yellow for anything except placeholder disclosure.
+- **Don't** use neutral grey or black shadows, or hard offset shadows.
+- **Don't** add uppercase labels, kickers or eyebrows above headings.
+- **Don't** layer a metaphor or theme on top of the category convention.

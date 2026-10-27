@@ -22,6 +22,13 @@ for (const bank of ['bog', 'tbc'] as const) {
   check(typeof acc.holder === 'string' && acc.holder.trim(), file, `"bankAccounts" → "${bank}" → "holder" must be the account holder's name`);
 }
 
+const loc = s.location;
+check(
+  loc === undefined || (typeof loc?.lat === 'number' && typeof loc?.lng === 'number' && Math.abs(loc.lat) <= 90 && Math.abs(loc.lng) <= 180),
+  file,
+  '"location" must look like { "lat": 41.91935, "lng": 44.727734 } (numbers, no quotes), or be removed',
+);
+
 export const config = {
   placeholder: s.showSampleLabels !== false,
   name: s.name.trim() as string,
@@ -31,6 +38,8 @@ export const config = {
   hours: { open: s.openingHours.open as string, close: s.openingHours.close as string },
   prepMinutes: s.prepMinutes as number,
   address: text(s.address, file, '"address"'),
+  // Opens the pin in Google Maps (app on phones, website otherwise).
+  mapUrl: loc ? `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}` : null,
   banks: {
     bog: { iban: s.bankAccounts.bog.iban.replace(/\s/g, '') as string, holder: s.bankAccounts.bog.holder as string },
     tbc: { iban: s.bankAccounts.tbc.iban.replace(/\s/g, '') as string, holder: s.bankAccounts.tbc.holder as string },

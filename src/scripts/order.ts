@@ -5,7 +5,6 @@ const lang = document.documentElement.lang as Lang;
 const body = document.body;
 const CART_KEY = 'pizzeria.cart';
 const CUSTOMER_KEY = 'pizzeria.customer';
-const MAX_DOTS = 10;
 
 const store = {
   get<T>(key: string, fallback: T): T {
@@ -35,7 +34,7 @@ const $$ = <T extends Element>(sel: string, root: ParentNode = document) => [...
 const dock = $<HTMLElement>('[data-dock]');
 const toggle = $<HTMLButtonElement>('[data-toggle]');
 const scrim = $<HTMLElement>('[data-scrim]');
-const track = $<HTMLElement>('[data-track]');
+const dockTitle = $<HTMLElement>('.dock-title');
 const form = $<HTMLFormElement>('[data-form]');
 const lines = $<HTMLUListElement>('[data-lines]');
 const sent = $<HTMLElement>('[data-sent]');
@@ -56,7 +55,8 @@ function change(id: string, delta: number) {
   else cart.delete(id);
   store.set(CART_KEY, Object.fromEntries(cart));
   formError.textContent = '';
-  render(delta > 0 ? id : undefined);
+  render();
+  if (delta > 0) bump();
 }
 
 function qtyControl(id: string, n: number): HTMLElement {
@@ -71,7 +71,7 @@ function qtyControl(id: string, n: number): HTMLElement {
   return el;
 }
 
-function render(addedId?: string) {
+function render() {
   const count = units();
   const sum = price(total());
 
@@ -82,33 +82,9 @@ function render(addedId?: string) {
     qty.dataset.qty = String(n);
     $<HTMLElement>('[data-count]', row).textContent = String(n);
     row.classList.toggle('is-in', n > 0);
-    if (id === addedId) {
-      row.classList.remove('is-bump');
-      void row.offsetWidth;
-      row.classList.add('is-bump');
-    }
   }
 
-  // The signature line: one station per unit, ending at the green terminus.
-  const end = $<HTMLElement>('.track-end', track);
-  const prev = $$('.track-dot', track).length;
-  track.replaceChildren();
-  const shown = Math.min(count, MAX_DOTS);
-  for (let i = 0; i < shown; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'track-dot';
-    if (addedId && i >= prev) dot.classList.add('is-new');
-    track.append(dot);
-  }
-  if (count > MAX_DOTS) {
-    const more = document.createElement('span');
-    more.className = 'track-more';
-    more.textContent = `+${count - MAX_DOTS}`;
-    track.append(more);
-  }
-  track.append(end);
-  track.toggleAttribute('data-empty', count === 0);
-
+  $<HTMLElement>('[data-units]').textContent = String(count);
   $<HTMLElement>('[data-count-label]').textContent = count ? itemCount(lang, count) : t(lang, 'empty');
   for (const el of $$<HTMLElement>('[data-total]')) el.textContent = sum;
 
@@ -129,7 +105,15 @@ function render(addedId?: string) {
   $<HTMLElement>('[data-empty]').hidden = count > 0;
   foot.hidden = count === 0 || !sent.hidden;
   dock.toggleAttribute('data-has', count > 0);
+  syncTitle();
   updateMeta();
+}
+
+// A short pulse on the order bar confirms the add without moving the page.
+function bump() {
+  toggle.classList.remove('is-bump');
+  void toggle.offsetWidth;
+  toggle.classList.add('is-bump');
 }
 
 function updateMeta() {
@@ -149,7 +133,7 @@ document.addEventListener('click', (e) => {
   // Keep focus on a control that still exists after the re-render.
   if (id.dataset.item) {
     const n = cart.get(itemId) ?? 0;
-    const next = n ? $$<HTMLButtonElement>(removing ? '[data-remove]' : '.qty-btn[data-add]', id)[0] : $<HTMLButtonElement>('.qty-add', id);
+    const next = n && removing ? $<HTMLButtonElement>('[data-remove]', id) : $<HTMLButtonElement>('[data-add]', id);
     next?.focus();
   } else {
     const row = lines.querySelector<HTMLElement>(`[data-line="${itemId}"]`);
@@ -159,9 +143,15 @@ document.addEventListener('click', (e) => {
 
 // ── Dock open / close (phones) ───────────────────────────
 
+function syncTitle() {
+  const open = dock.dataset.state === 'open';
+  dockTitle.textContent = open ? dockTitle.dataset.title! : dockTitle.dataset.view!;
+}
+
 function setOpen(open: boolean) {
   if (desktop.matches) open = true;
   dock.dataset.state = open ? 'open' : 'collapsed';
+  syncTitle();
   toggle.setAttribute('aria-expanded', String(open));
   scrim.hidden = !open || desktop.matches;
   document.documentElement.style.overflow = open && !desktop.matches ? 'hidden' : '';
@@ -182,6 +172,23 @@ desktop.addEventListener('change', () => {
   setOpen(false);
 });
 toggle.tabIndex = desktop.matches ? -1 : 0;
+
+// Desktop: the sticky order panel sits lower at the top of the page, so size it to the
+// space actually visible; otherwise its send button falls below the fold.
+let fitQueued = false;
+function fitDock() {
+  fitQueued = false;
+  if (!desktop.matches) return dock.style.removeProperty('--dock-top');
+  dock.style.setProperty('--dock-top', `${Math.max(72, dock.getBoundingClientRect().top)}px`);
+}
+const queueFit = () => {
+  if (!fitQueued) requestAnimationFrame(fitDock);
+  fitQueued = true;
+};
+addEventListener('scroll', queueFit, { passive: true });
+addEventListener('resize', queueFit);
+desktop.addEventListener('change', queueFit);
+queueFit();
 
 // ── Opening hours and pickup slots (Tbilisi time) ────────
 
@@ -362,23 +369,56 @@ $<HTMLButtonElement>('[data-new]').addEventListener('click', () => {
   scrollTo({ top: 0 });
 });
 
+// ── Remember the language picked with the switcher ───────
+
+for (const link of $$<HTMLAnchorElement>('.lang a')) {
+  link.addEventListener('click', () => {
+    try {
+      localStorage.setItem('pizzeria.lang', link.hreflang); // read raw by the inline redirect in <head>
+    } catch {
+      /* private mode: the browser language decides next time */
+    }
+  });
+}
+
 // ── Category pills follow the scroll ─────────────────────
 
+const cats = $<HTMLElement>('.cats-inner');
 const pills = $$<HTMLAnchorElement>('.cats a');
-const spy = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      for (const p of pills) {
-        const on = p.hash === `#${entry.target.id}`;
-        p.toggleAttribute('aria-current', on);
-        if (on) p.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+const sections = $$<HTMLElement>('.cat');
+let activeHash = '';
+let spyQueued = false;
+
+// The active tab is the last category whose heading has passed under the sticky tabs.
+function syncTabs() {
+  spyQueued = false;
+  const line = cats.getBoundingClientRect().bottom + 24;
+  const current = sections.filter((sec) => sec.getBoundingClientRect().top <= line).pop() ?? sections[0];
+  const hash = `#${current.id}`;
+  if (hash === activeHash) return;
+  activeHash = hash;
+  for (const p of pills) {
+    const on = p.hash === hash;
+    p.toggleAttribute('aria-current', on);
+    // Scroll only the tab strip sideways. scrollIntoView would also nudge the
+    // page vertically, which made the page bounce back while scrolling.
+    if (on) {
+      const left = p.offsetLeft - cats.offsetLeft; // both measured from the sticky .cats
+      if (left < cats.scrollLeft || left + p.offsetWidth > cats.scrollLeft + cats.clientWidth) {
+        cats.scrollTo({ left: Math.max(0, left - 16), behavior: 'smooth' });
       }
     }
+  }
+}
+addEventListener(
+  'scroll',
+  () => {
+    if (!spyQueued) requestAnimationFrame(syncTabs);
+    spyQueued = true;
   },
-  { rootMargin: '-80px 0px -70% 0px' },
+  { passive: true },
 );
-for (const section of $$('.line-section')) spy.observe(section);
+syncTabs();
 
 setupHours();
 setInterval(setupHours, 60_000);
