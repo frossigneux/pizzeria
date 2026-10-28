@@ -370,9 +370,7 @@ form.addEventListener('submit', (e) => {
     return;
   }
   saveCustomer();
-  const url = `https://wa.me/${body.dataset.wa}?text=${encodeURIComponent(message())}`;
-  const win = window.open(url, '_blank', 'noopener');
-  if (!win) location.href = url;
+  openWhatsApp(message());
 
   const acc = currentPay() === 'pickup' ? null : bank.cloneNode(true) as HTMLElement;
   const sentBank = $<HTMLElement>('[data-sent-bank]');
@@ -391,6 +389,32 @@ form.addEventListener('submit', (e) => {
   setOpen(true);
   sent.focus();
 });
+
+// Phones: open the WhatsApp app directly (no api.whatsapp.com tab left behind), and fall
+// back to the web link if the app did not take over. Computers: WhatsApp Web / desktop app.
+function openWhatsApp(text: string) {
+  const phone = body.dataset.wa!;
+  const webUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  const ua = navigator.userAgent;
+  const isPhone = /Android|iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  if (!isPhone) {
+    if (!window.open(webUrl, '_blank', 'noopener')) location.href = webUrl;
+    return;
+  }
+  let appOpened = false;
+  const onHide = () => {
+    if (document.visibilityState === 'hidden') appOpened = true;
+  };
+  const onLeave = () => (appOpened = true);
+  document.addEventListener('visibilitychange', onHide);
+  addEventListener('pagehide', onLeave);
+  location.href = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(text)}`;
+  setTimeout(() => {
+    document.removeEventListener('visibilitychange', onHide);
+    removeEventListener('pagehide', onLeave);
+    if (!appOpened) location.href = webUrl;
+  }, 1500);
+}
 
 $<HTMLButtonElement>('[data-new]').addEventListener('click', () => {
   form.reset();
