@@ -186,14 +186,18 @@ const icon = {
               {!c.orderable && <p class="cat-note">{t(lang, 'atCafe')}</p>}
               <ul class="items">
                 {c.items.map((i) => (
-                  <li class={c.orderable ? 'item' : 'item item--info'} data-item={c.orderable ? i.id : undefined}>
+                  <li
+                    class={['item', !c.orderable && 'item--info', !i.available && 'item--off'].filter(Boolean).join(' ')}
+                    data-item={c.orderable && i.available ? i.id : undefined}
+                  >
                     <div class="item-text">
                       <h3>{i.name[lang]}</h3>
                       {i.desc[lang] && <p class="desc">{i.desc[lang]}</p>}
                       <p class="alt" lang={alt}>{i.name[alt]}</p>
                       <p class="price">{price(i.price)}</p>
                     </div>
-                    {c.orderable && (<div class="qty" data-qty="0">
+                    {!i.available && <span class="off-tag">{t(lang, 'unavailable')}</span>}
+                    {c.orderable && i.available && (<div class="qty" data-qty="0">
                       <button class="qty-btn qty-remove" type="button" data-remove aria-label={t(lang, 'removeOne', { name: i.name[lang] })}>
                         <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.minus} />
                       </button>

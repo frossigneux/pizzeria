@@ -430,6 +430,25 @@ body[data-closed] .status {
   color: var(--tomato-strong);
 }
 
+/* Temporarily unavailable: still listed so regulars know it comes back. */
+
+.item--off .item-text {
+  opacity: 0.55;
+}
+
+.off-tag {
+  flex: none;
+  max-width: 9rem;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+
 /* Quantity: a round + until the dish is in the order, then − n +. */
 
 .qty {

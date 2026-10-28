@@ -11,6 +11,8 @@ export interface Item {
   name: Text;
   desc: Text;
   price: number; // GEL
+  // false: temporarily unavailable (shown greyed out, cannot be ordered).
+  available: boolean;
 }
 
 export interface Category {
@@ -47,28 +49,34 @@ function load(data: unknown): Category[] {
     check(c.orderable === undefined || typeof c.orderable === 'boolean', file, `${where} ("${name.en}") → "orderable" must be true or false, without quotes`);
     check(Array.isArray(c.items), file, `${where} ("${name.en}") → "items" must be a list`);
 
+    // "hidden": true removes an item from the site for good but keeps it in the file;
+    // "available": false shows it greyed out until it is back.
     const items = (c.items as Record<string, unknown>[])
-      .filter((i) => i.available !== false)
       .map((i, ii) => {
         const at = `${where} ("${name.en}"), item ${ii + 1}`;
         const itemName = text(i.name, file, `${at} → "name"`);
         const label = `${at} ("${itemName.en}")`;
         check(typeof i.price === 'number' && i.price > 0, file, `${label} → "price" must be a number above 0, without quotes or ₾, e.g. 15 or 15.5`);
+        check(i.available === undefined || typeof i.available === 'boolean', file, `${label} → "available" must be true or false, without quotes`);
+        check(i.hidden === undefined || typeof i.hidden === 'boolean', file, `${label} → "hidden" must be true or false, without quotes`);
+        if (i.hidden === true) return null;
         return {
           id: uniqueId(typeof i.id === 'string' && i.id ? i.id : slug(itemName.en), label),
           name: itemName,
           desc: i.description === undefined ? Object.fromEntries(langs.map((l) => [l, ''])) as Text : text(i.description, file, `${label} → "description"`),
           price: i.price as number,
+          available: i.available !== false,
         };
-      });
+      })
+      .filter((i): i is Item => i !== null);
     return { id, name, orderable: c.orderable !== false, items };
   }).filter((c) => c.items.length > 0);
 }
 
 export const menu: Category[] = load(raw);
 
-// Only what can be ordered online can go into the cart.
+// Only what can be ordered online right now can go into the cart.
 export const items: Record<string, Item> = Object.fromEntries(
-  menu.filter((c) => c.orderable).flatMap((c) => c.items.map((i) => [i.id, i])),
+  menu.filter((c) => c.orderable).flatMap((c) => c.items.filter((i) => i.available).map((i) => [i.id, i])),
 );
 

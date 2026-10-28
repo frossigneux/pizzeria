@@ -24,7 +24,9 @@ If you made a mistake, a red cross appears instead. Click it, then **Details**: 
 "price": 17
 ```
 
-**Hide a pizza for now** (sold out, seasonal). Add `"available": false` to it, and remove the line (or set it to `true`) to show it again:
+**Temporarily unavailable** (sold out today, missing ingredient). Add `"available": false` to the item. It stays on the site, greyed out with "Temporarily unavailable", and cannot be ordered. Remove the line (or set it to `true`) when it is back.
+
+**Remove an item for good** (no longer on the menu). Add `"hidden": true`. It disappears from the site but stays in the file, so you can bring it back later by removing the line.
 
 ```json
 {
