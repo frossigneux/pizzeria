@@ -24,6 +24,33 @@ const groups = (iban: string) => iban.match(/.{1,4}/g) ?? [iban];
 const dayName = (i: number) =>
   new Intl.DateTimeFormat(lang, { weekday: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2024, 0, 1 + i)));
 const site = Astro.site ?? new URL('http://localhost');
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const pageTitle = `${config.name} · ${t(lang, 'title')}`;
+const canonical = new URL(langPath[lang], site).href;
+const ogImage = new URL(`${base}og.jpg`, site).href;
+const ogLocale: Record<Lang, string> = { ka: 'ka_GE', en: 'en_US', ru: 'ru_RU' };
+
+// Structured data for search engines: the café, its location and weekly hours.
+const schemaDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CafeOrCoffeeShop',
+  name: config.name,
+  url: canonical,
+  image: ogImage,
+  description: t(lang, 'metaDesc'),
+  servesCuisine: ['Pizza', 'Cakes', 'Coffee', 'Tea'],
+  telephone: `+${config.whatsapp}`,
+  priceRange: '₾',
+  address: { '@type': 'PostalAddress', addressCountry: 'GE' },
+  ...(config.location && {
+    geo: { '@type': 'GeoCoordinates', latitude: config.location.lat, longitude: config.location.lng },
+    hasMap: config.mapUrl,
+  }),
+  openingHoursSpecification: config.week.flatMap((h, i) =>
+    h ? [{ '@type': 'OpeningHoursSpecification', dayOfWeek: schemaDays[i], opens: h.open, closes: h.close }] : [],
+  ),
+};
 
 const icon = {
   plus: '<path d="M10 4v12M4 10h12"/>',
@@ -43,15 +70,42 @@ const icon = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#c43f1a" />
-    <title>{config.name} · {t(lang, 'title')}</title>
-    <meta name="description" content={`${t(lang, 'pickupOnly')}. ${t(lang, 'payLine')}.`} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={t(lang, 'metaDesc')} />
+    <link rel="canonical" href={canonical} />
     {langs.map((l) => <link rel="alternate" hreflang={l} href={new URL(langPath[l], site).href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(langPath.ka, site).href} />
+
+    <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}site.webmanifest`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={config.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={t(lang, 'metaDesc')} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    {langs.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={ogLocale[l]} />)}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t(lang, 'photoAlt')} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={t(lang, 'metaDesc')} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     {
       lang === 'ka' && (
         <script is:inline define:vars={{ paths: langPath }}>
           // First visit to the Georgian home page: follow the browser's languages
           // (ka, ru, otherwise English). A choice made with the switcher wins.
           try {
+            // Leave search-engine crawlers on the Georgian page so each language stays indexed.
+            if (/bot|crawl|spider|slurp|facebookexternalhit|whatsapp|telegram/i.test(navigator.userAgent)) throw 0;
             var saved = localStorage.getItem('pizzeria.lang');
             var wanted = saved;
             if (!wanted) {

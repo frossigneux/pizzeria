@@ -54,6 +54,7 @@ export const config = {
   week,
   address: text(s.address, file, '"address"'),
   // Opens the pin in Google Maps (app on phones, website otherwise).
+  location: loc ? { lat: loc.lat as number, lng: loc.lng as number } : null,
   mapUrl: loc ? `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}` : null,
   banks: {
     bog: { iban: s.bankAccounts.bog.iban.replace(/\s/g, '') as string, holder: s.bankAccounts.bog.holder as string },
