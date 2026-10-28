@@ -18,7 +18,8 @@
             "en": "Tomato, mozzarella, basil",
             "ru": "Томаты, моцарелла, базилик"
           },
-          "price": 15
+          "price": 15,
+          "promoPrice": 12
         },
         {
           "name": {
@@ -57,7 +58,8 @@
             "en": "Mozzarella, sulguni, gouda, blue cheese",
             "ru": "Моцарелла, сулугуни, гауда, голубой сыр"
           },
-          "price": 21
+          "price": 21,
+          "hidden": true
         }
       ]
     },
@@ -92,7 +94,8 @@
             "en": "Imeruli cheese, sulguni, egg yolk",
             "ru": "Имеретинский сыр, сулугуни, желток"
           },
-          "price": 20
+          "price": 20,
+          "available": false
         },
         {
           "name": {

@@ -194,7 +194,11 @@ const icon = {
                       <h3>{i.name[lang]}</h3>
                       {i.desc[lang] && <p class="desc">{i.desc[lang]}</p>}
                       <p class="alt" lang={alt}>{i.name[alt]}</p>
-                      <p class="price">{price(i.price)}</p>
+                      <p class={i.regularPrice ? 'price price--promo' : 'price'}>
+                        {i.regularPrice && <span class="promo-tag">{t(lang, 'promo')}</span>}
+                        {i.regularPrice && <del><span class="sr-only">{t(lang, 'wasPrice')} </span>{price(i.regularPrice)}</del>}
+                        {price(i.price)}
+                      </p>
                     </div>
                     {!i.available && <span class="off-tag">{t(lang, 'unavailable')}</span>}
                     {c.orderable && i.available && (<div class="qty" data-qty="0">

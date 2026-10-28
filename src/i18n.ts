@@ -8,6 +8,8 @@ export const langPath: Record<Lang, string> = { ka: `${base}/`, en: `${base}/en/
 
 const strings = {
   ka: {
+    promo: 'აქცია',
+    wasPrice: 'ძველი ფასი',
     unavailable: 'დროებით მიუწვდომელია',
     photoAlt: 'კაფეს ფასადი და ტერასა ყვითელი ხის ქვეშ',
     closedDay: 'დაკეტილია · გაიხსნება: {d}, {t}',
@@ -73,6 +75,8 @@ const strings = {
     msgTotal: 'ჯამი',
   },
   en: {
+    promo: 'Promo',
+    wasPrice: 'Was',
     unavailable: 'Temporarily unavailable',
     photoAlt: 'The café front and its terrace under a yellow tree',
     closedDay: 'Closed · opens {d} at {t}',
@@ -138,6 +142,8 @@ const strings = {
     msgTotal: 'Total',
   },
   ru: {
+    promo: 'Акция',
+    wasPrice: 'Было',
     unavailable: 'Временно нет',
     photoAlt: 'Фасад кафе и терраса под жёлтым деревом',
     closedDay: 'Закрыто · открытие: {d}, {t}',

@@ -10,7 +10,8 @@ export interface Item {
   id: string;
   name: Text;
   desc: Text;
-  price: number; // GEL
+  price: number; // GEL, what the customer pays (the promo price during a promo)
+  regularPrice?: number; // set only during a promo, shown struck through
   // false: temporarily unavailable (shown greyed out, cannot be ordered).
   available: boolean;
 }
@@ -57,6 +58,11 @@ function load(data: unknown): Category[] {
         const itemName = text(i.name, file, `${at} → "name"`);
         const label = `${at} ("${itemName.en}")`;
         check(typeof i.price === 'number' && i.price > 0, file, `${label} → "price" must be a number above 0, without quotes or ₾, e.g. 15 or 15.5`);
+        check(
+          i.promoPrice === undefined || (typeof i.promoPrice === 'number' && i.promoPrice > 0 && i.promoPrice < (i.price as number)),
+          file,
+          `${label} → "promoPrice" must be a number lower than "price", without quotes (remove the line to end the promo)`,
+        );
         check(i.available === undefined || typeof i.available === 'boolean', file, `${label} → "available" must be true or false, without quotes`);
         check(i.hidden === undefined || typeof i.hidden === 'boolean', file, `${label} → "hidden" must be true or false, without quotes`);
         if (i.hidden === true) return null;
@@ -64,7 +70,8 @@ function load(data: unknown): Category[] {
           id: uniqueId(typeof i.id === 'string' && i.id ? i.id : slug(itemName.en), label),
           name: itemName,
           desc: i.description === undefined ? Object.fromEntries(langs.map((l) => [l, ''])) as Text : text(i.description, file, `${label} → "description"`),
-          price: i.price as number,
+          price: (i.promoPrice ?? i.price) as number,
+          ...(i.promoPrice !== undefined && { regularPrice: i.price as number }),
           available: i.available !== false,
         };
       })

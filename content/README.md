@@ -24,6 +24,13 @@ If you made a mistake, a red cross appears instead. Click it, then **Details**: 
 "price": 17
 ```
 
+**Run a promo.** Add `"promoPrice"` with the new price, lower than `"price"`. The site shows the normal price struck through, the promo price in red with a "Promo" tag, and charges the promo price. Remove the line to end the promo.
+
+```json
+"price": 15,
+"promoPrice": 12
+```
+
 **Temporarily unavailable** (sold out today, missing ingredient). Add `"available": false` to the item. It stays on the site, greyed out with "Temporarily unavailable", and cannot be ordered. Remove the line (or set it to `true`) when it is back.
 
 **Remove an item for good** (no longer on the menu). Add `"hidden": true`. It disappears from the site but stays in the file, so you can bring it back later by removing the line.
