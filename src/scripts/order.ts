@@ -56,8 +56,17 @@ function change(id: string, delta: number) {
   else cart.delete(id);
   store.set(CART_KEY, Object.fromEntries(cart));
   formError.textContent = '';
+  leaveSent();
   render();
   if (delta > 0) bump();
+}
+
+// The "sent" confirmation is for the order that just left; any new activity
+// (adding an item, closing the sheet) brings back the form and its send button.
+function leaveSent() {
+  if (sent.hidden) return;
+  sent.hidden = true;
+  form.hidden = false;
 }
 
 function qtyControl(id: string, n: number): HTMLElement {
@@ -151,6 +160,7 @@ function syncTitle() {
 }
 
 function setOpen(open: boolean) {
+  if (!open) leaveSent();
   if (desktop.matches) open = true;
   dock.dataset.state = open ? 'open' : 'collapsed';
   syncTitle();
