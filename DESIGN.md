@@ -8,8 +8,6 @@ colors:
   green: "#1f7a47"
   green-strong: "#186239"
   green-soft: "#e1f2e7"
-  note-bg: "#fff0c2"
-  note-ink: "#6a4d00"
   error: "#b3261e"
   bg: "#fffaf3"
   surface: "#ffffff"
@@ -107,12 +105,6 @@ components:
     textColor: "{colors.green-strong}"
     rounded: "{rounded.pill}"
     padding: "4px 12px"
-  sample-note:
-    backgroundColor: "{colors.note-bg}"
-    textColor: "{colors.note-ink}"
-    typography: "{typography.caption}"
-    rounded: "6px"
-    padding: "2px 8px"
   card:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.l}"
@@ -148,7 +140,6 @@ The page carries three languages. Georgian, English and Russian get equal care: 
 - Soft rounded cards (14 to 16px) with brown-tinted ambient shadows; pills for chips and small buttons.
 - Round + becomes a filled − n + pill once the dish is in the order.
 - Floating order bar on phones becomes a bottom sheet; a sticky sidebar on desktop at 960px and up.
-- Placeholder content is disclosed with yellow note chips, never presented as real.
 
 ## Colors
 
@@ -163,7 +154,6 @@ A warm-paper palette: cream and brown neutrals, one tomato accent in three stren
 - **Basil Green** (green): the WhatsApp send button and the sent confirmation's check glyph. **Deep Basil** (green-strong) is its hover state and the text colour of the "Open now" chip and copied-IBAN state. **Basil Mist** (green-soft) is the ground of the open-status chip and the sent check circle.
 
 ### Tertiary
-- **Note Yellow** (note-bg) with **Note Ink** (note-ink): placeholder disclosures only ("Name and logo to come", "Sample menu", sample IBAN). They render only while `config.placeholder` / `settings.showSampleLabels` is on.
 - **Error Red** (error): invalid-field border, error hint, form error line.
 
 ### Neutral
@@ -180,8 +170,6 @@ A warm-paper palette: cream and brown neutrals, one tomato accent in three stren
 
 **The Green Means Done Rule.** Green appears only for positive states: "Open now", "Send on WhatsApp", the copied confirmation and the sent confirmation. It is never decoration and never a second brand colour.
 
-**The Yellow Is Honesty Rule.** Note Yellow is only for placeholder disclosures. When the placeholder flags are off, no yellow remains on the page.
-
 ## Typography
 
 **Display Font:** Rubik (with Noto Sans Georgian, system-ui, sans-serif)
@@ -196,7 +184,7 @@ A warm-paper palette: cream and brown neutrals, one tomato accent in three stren
 - **Title** (500, 1.0625rem, 1.3): dish names, tab labels, prices, order-line names; 700 for the order bar title and total.
 - **Body** (400, 1.0625rem, 1.45): base text. Numerals are tabular everywhere (`font-variant-numeric: tabular-nums`) so prices align.
 - **Label** (400 to 500, 0.9375rem): descriptions, chips, field labels, the language switch, ghost buttons, the payment line.
-- **Caption** (400 to 500, 0.8125rem): second-language dish names, field hints, account holder, sample notes.
+- **Caption** (400 to 500, 0.8125rem): second-language dish names, field hints, account holder.
 
 ### Named Rules
 **The Sentence Case Rule.** Every string is in sentence case, in all three languages. No uppercase labels, no tracked-out capitals.
@@ -228,7 +216,7 @@ A light hybrid. The page is mostly flat and tonal (paper ground, white surfaces,
 
 ## Shapes
 
-Everything is soft. Cards and the sheet use 16px, the order bar and send button use 14px, and inputs, payment options and the bank panel use 10px. Chips, the language switch, quantity controls, ghost and copy buttons are full pills (999px). The + button is a 44px circle. Sample notes use a small 6px radius so they read as notes, not controls. The bottom sheet rounds only its top corners. The active-tab underline is 3px with rounded top ends. Borders are 1.5px on interactive fields and 1px on dividers. Icons are inline 20px stroke SVGs (2.2 stroke, round caps and joins) that inherit `currentColor`.
+Everything is soft. Cards and the sheet use 16px, the order bar and send button use 14px, and inputs, payment options and the bank panel use 10px. Chips, the language switch, quantity controls, ghost and copy buttons are full pills (999px). The + button is a 44px circle. The bottom sheet rounds only its top corners. The active-tab underline is 3px with rounded top ends. Borders are 1.5px on interactive fields and 1px on dividers. Icons are inline 20px stroke SVGs (2.2 stroke, round caps and joins) that inherit `currentColor`.
 
 ## Components
 
@@ -244,7 +232,6 @@ Everything is soft. Cards and the sheet use 16px, the order bar and send button 
 ### Chips
 - **Neutral:** Crust ground, ink text, 30px pill, 4px 12px.
 - **Status:** a Basil Mist ground with Deep Basil text and a leading 8px dot. When closed, it switches to Tomato Blush with Deep Tomato.
-- **Sample note:** Note Yellow with Note Ink, caption size, 500, 6px radius. It renders only under the placeholder flags.
 
 ### Cards / Containers
 - **Corner Style:** 16px for the venue card, the desktop sidebar and the sheet; 14px for the info card.
@@ -275,7 +262,6 @@ On phones, the bar opens into a bottom sheet (max 90dvh, 16px top corners, Sheet
 - **Do** tint every shadow and scrim warm brown.
 - **Do** keep every string in sentence case and use only the 400, 500 and 700 weights.
 - **Do** let Noto Sans Georgian lead the font stack on Georgian pages.
-- **Do** disclose placeholder content with yellow sample notes gated by the placeholder flags, and drop them once real content lands.
 - **Do** keep touch targets at 44px or larger and form text at 16px or larger.
 - **Do** use inline stroke SVG icons in `currentColor` at 20px.
 

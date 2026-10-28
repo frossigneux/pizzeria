@@ -94,36 +94,6 @@
           "#f0f5f2"
         ]
       },
-      "note-bg": {
-        "role": "tertiary",
-        "displayName": "Note Yellow",
-        "canonical": "#fff0c2",
-        "tonalRamp": [
-          "#3c3210",
-          "#6c5613",
-          "#a8830f",
-          "#f2b703",
-          "#f3c73f",
-          "#ecd283",
-          "#eee2be",
-          "#f8f5ec"
-        ]
-      },
-      "note-ink": {
-        "role": "tertiary",
-        "displayName": "Note Ink",
-        "canonical": "#6a4d00",
-        "tonalRamp": [
-          "#3c3010",
-          "#6c5413",
-          "#a87e0f",
-          "#f2b003",
-          "#f3c23f",
-          "#eccf83",
-          "#eee1be",
-          "#f8f5ec"
-        ]
-      },
       "error": {
         "role": "tertiary",
         "displayName": "Error Red",

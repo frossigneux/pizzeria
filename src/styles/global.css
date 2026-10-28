@@ -12,8 +12,6 @@
   --green: #1f7a47;
   --green-strong: #186239;
   --green-soft: #e1f2e7;
-  --note-bg: #fff0c2;
-  --note-ink: #6a4d00;
   --error: #b3261e;
 
   --t-xs: 0.8125rem;
@@ -129,15 +127,6 @@ a {
   text-decoration-thickness: 1.5px;
 }
 
-.sample {
-  display: inline-block;
-  font-size: var(--t-xs);
-  font-weight: 500;
-  background: var(--note-bg);
-  color: var(--note-ink);
-  padding: 2px var(--sp-2);
-  border-radius: 6px;
-}
 
 /* ── Header and venue card ────────────────────────────── */
 
@@ -170,9 +159,6 @@ a {
   overflow-wrap: anywhere;
 }
 
-.hero-title .sample {
-  margin-top: var(--sp-2);
-}
 
 .lang {
   display: flex;
@@ -230,12 +216,6 @@ a {
   gap: var(--sp-2);
 }
 
-.venue-samples {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-  margin-top: var(--sp-3);
-}
 
 .status {
   display: inline-flex;
@@ -583,9 +563,6 @@ body[data-closed] .status {
   font-weight: 500;
 }
 
-.info dd .sample {
-  margin-left: var(--sp-2);
-}
 
 /* ── Order (floating bar → bottom sheet; sidebar on desktop) ── */
 
@@ -941,14 +918,6 @@ body[data-closed] .status {
   white-space: nowrap;
 }
 
-.bank-sample {
-  font-size: var(--t-xs);
-  font-weight: 500;
-  background: var(--note-bg);
-  color: var(--note-ink);
-  padding: 1px 6px;
-  border-radius: 6px;
-}
 
 .bank-holder {
   font-size: var(--t-xs);

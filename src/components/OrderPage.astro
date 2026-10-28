@@ -160,14 +160,6 @@ const icon = {
         }
       </p>
       <p class="venue-pay">{t(lang, 'payLine')}</p>
-      {
-        config.placeholder && (
-          <p class="venue-samples">
-            <span class="sample">{t(lang, 'statusTbc')}</span>
-            <span class="sample">{t(lang, 'sample')}</span>
-          </p>
-        )
-      }
       </div>
     </section>
 
@@ -249,7 +241,6 @@ const icon = {
                     ))}
                   </tbody>
                 </table>
-                {config.placeholder && <span class="sample sample--inline">{t(lang, 'hoursTbc')}</span>}
               </dd>
             </div>
             <div>
@@ -316,7 +307,6 @@ const icon = {
                     <span class="bank-iban">
                       {groups(config.banks[b].iban).map((g) => <span>{g}</span>)}
                     </span>
-                    {config.placeholder && <span class="bank-sample">{t(lang, 'sampleIban')}</span>}
                     <span class="bank-holder">
                       {t(lang, 'holder')}: {config.banks[b].holder}
                     </span>

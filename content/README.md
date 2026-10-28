@@ -59,7 +59,6 @@ If you made a mistake, a red cross appears instead. Click it, then **Details**: 
 - `"openingHours"`: one line per day (`monday` … `sunday`), 24-hour clock, Tbilisi time, e.g. `"friday": { "open": "10:00", "close": "23:00" }`. Write `"sunday": "closed"` for a day off. Closing after midnight is not supported.
 - `"bankAccounts"`: IBAN and account holder for Bank of Georgia (`bog`) and TBC (`tbc`). Spaces in the IBAN are fine.
 - `"showPhoto"`: `true` shows the café illustration at the top of the info card, `false` hides it.
-- `"showSampleLabels"`: set it to `false` once the real menu, hours and accounts are filled in. This removes the yellow "sample" labels.
 
 ## Rules of JSON, in short
 

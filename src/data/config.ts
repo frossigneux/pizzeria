@@ -44,7 +44,6 @@ check(
 );
 
 export const config = {
-  placeholder: s.showSampleLabels !== false,
   name: s.name.trim() as string,
   // The café illustration (src/assets/cafe.jpg) at the top of the info card.
   showPhoto: s.showPhoto !== false,
