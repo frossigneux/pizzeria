@@ -248,7 +248,8 @@ function setupHours() {
   const first = isOpen ? Math.ceil((now + 1) / 15) * 15 : next.open;
   const options: HTMLOptionElement[] = [];
   if (isOpen) options.push(new Option(select.dataset.asap!, 'asap'));
-  for (let m = Math.ceil(first / 15) * 15; m <= next.close; m += 15) options.push(new Option(prefix + fmt(m), prefix + fmt(m)));
+  const dayKey = next.offset ? `${(day + next.offset) % 7}@` : '';
+  for (let m = Math.ceil(first / 15) * 15; m <= next.close; m += 15) options.push(new Option(prefix + fmt(m), dayKey + fmt(m)));
   select.replaceChildren(...options);
   if (options.some((o) => o.value === keep)) select.value = keep;
   updateMeta();
@@ -320,23 +321,37 @@ function setNameError(on: boolean) {
 
 // ── Send on WhatsApp ─────────────────────────────────────
 
+// The message always starts in Georgian for the staff; visitors on the English or
+// Russian page also get their own language below a separator.
 function message(): string {
   const data = new FormData(form);
   const pickup = String(data.get('pickup'));
   const note = String(data.get('note') ?? '').trim();
-  const out = [t(lang, 'msgHello'), ''];
-  for (const [id, n] of cart) {
-    const item = items[id];
-    // Staff read Georgian: add it beside the customer's language.
-    const ka = lang === 'ka' ? '' : ` (${item.name.ka})`;
-    out.push(`${n} × ${item.name[lang]}${ka} — ${price(item.price * n)}`);
-  }
-  out.push('', `${t(lang, 'msgTotal')}: ${price(total())}`);
-  out.push(`${t(lang, 'msgName')}: ${nameInput.value.trim()}`);
-  out.push(`${t(lang, 'msgPickup')}: ${pickup === 'asap' ? t(lang, 'asap') : pickup}`);
-  out.push(`${t(lang, 'msgPayment')}: ${payLabel(currentPay())}`);
-  if (note) out.push(`${t(lang, 'msgNote')}: ${note}`);
-  return out.join('\n');
+  const name = nameInput.value.trim();
+  const pay = currentPay();
+
+  const block = (l: Lang) => {
+    const out = [t(l, 'msgHello'), t(l, 'msgOrder'), ''];
+    for (const [id, n] of cart) out.push(`${n} × ${items[id].name[l]} — ${price(items[id].price * n)}`);
+    out.push('', `${t(l, 'msgTotal')}: ${price(total())}`);
+    out.push(`${t(l, 'msgName')}: ${name}`);
+    out.push(`${t(l, 'msgPickup')}: ${pickupLabel(pickup, l)}`);
+    out.push(`${t(l, 'msgPayment')}: ${t(l, pay === 'bog' ? 'payBog' : pay === 'tbc' ? 'payTbc' : 'payPickup')}`);
+    if (note) out.push(`${t(l, 'msgNote')}: ${note}`);
+    out.push('', t(l, 'msgConfirm'));
+    return out.join('\n');
+  };
+
+  return lang === 'ka' ? block('ka') : `${block('ka')}\n\n— — — — —\n\n${block(lang)}`;
+}
+
+// Pickup values are "asap", "HH:MM" (today) or "<weekday 0-6, Monday first>@HH:MM".
+function pickupLabel(value: string, l: Lang): string {
+  if (value === 'asap') return t(l, 'asap');
+  const [day, time] = value.includes('@') ? value.split('@') : [null, value];
+  if (day === null) return time;
+  const weekday = new Intl.DateTimeFormat(l, { weekday: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2024, 0, 1 + Number(day))));
+  return `${weekday} ${time}`;
 }
 
 form.addEventListener('submit', (e) => {
