@@ -364,6 +364,12 @@ body[data-closed] .status {
   padding: var(--sp-3) 0 var(--sp-2);
 }
 
+.cat-note {
+  margin-bottom: var(--sp-1);
+  font-size: var(--t-s);
+  color: var(--ink-2);
+}
+
 .item {
   display: flex;
   align-items: center;

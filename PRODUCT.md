@@ -12,7 +12,7 @@ delegated: Astro. The pages are mostly static (menu, info), so Astro ships them 
 
 ## Users
 
-Customers in Georgia ordering pizza online for pickup. The audience mixes Georgian speakers, Russian speakers, and English-speaking visitors and expats. They are usually hungry and want to get food quickly, so the order should take as few steps as possible.
+Customers in Georgia ordering online for pickup from Family, a café (storefront: coffee, tea, cakes, pizza). Pizzas, cakes and canned cold drinks are ordered online; coffee and tea are listed for information and served at the café. The audience mixes Georgian speakers, Russian speakers, and English-speaking visitors and expats. They are usually hungry and want to get food quickly, so the order should take as few steps as possible.
 
 ## Product Purpose
 
@@ -40,7 +40,7 @@ Fast and good value: quick service, fair prices, orders ready on time. The produ
 
 ## Evidence on Hand
 
-None yet: no name, logo, menu, prices or photos exist. Placeholders are allowed but must be clearly marked as placeholders. Never present invented names, dishes, prices, reviews or photos as real.
+Name: Family (from the storefront). Location pin: 41.91935, 44.727734. One confirmed price: the vegetable pizza is 25 GEL. No logo, full menu, other prices or photos yet. Placeholders are allowed but must be clearly marked as placeholders. Never present invented names, dishes, prices, reviews or photos as real.
 
 ## Product Principles
 

@@ -1,73 +1,322 @@
 {
   "categories": [
     {
-      "name": { "ka": "კლასიკური", "en": "Classics", "ru": "Классические" },
+      "name": {
+        "ka": "კლასიკური",
+        "en": "Classics",
+        "ru": "Классические"
+      },
       "items": [
         {
-          "name": { "ka": "მარგარიტა", "en": "Margherita", "ru": "Маргарита" },
-          "description": { "ka": "პომიდორი, მოცარელა, რეჰანი", "en": "Tomato, mozzarella, basil", "ru": "Томаты, моцарелла, базилик" },
+          "name": {
+            "ka": "მარგარიტა",
+            "en": "Margherita",
+            "ru": "Маргарита"
+          },
+          "description": {
+            "ka": "პომიდორი, მოცარელა, რეჰანი",
+            "en": "Tomato, mozzarella, basil",
+            "ru": "Томаты, моцарелла, базилик"
+          },
           "price": 15
         },
         {
-          "name": { "ka": "პეპერონი", "en": "Pepperoni", "ru": "Пепперони" },
-          "description": { "ka": "პომიდორი, მოცარელა, პეპერონი", "en": "Tomato, mozzarella, pepperoni", "ru": "Томаты, моцарелла, пепперони" },
+          "name": {
+            "ka": "პეპერონი",
+            "en": "Pepperoni",
+            "ru": "Пепперони"
+          },
+          "description": {
+            "ka": "პომიდორი, მოცარელა, პეპერონი",
+            "en": "Tomato, mozzarella, pepperoni",
+            "ru": "Томаты, моцарелла, пепперони"
+          },
           "price": 18
         },
         {
-          "name": { "ka": "ლორი და სოკო", "en": "Ham & mushroom", "ru": "Ветчина и грибы" },
-          "description": { "ka": "პომიდორი, მოცარელა, ლორი, შამპინიონი", "en": "Tomato, mozzarella, ham, champignons", "ru": "Томаты, моцарелла, ветчина, шампиньоны" },
+          "name": {
+            "ka": "ლორი და სოკო",
+            "en": "Ham & mushroom",
+            "ru": "Ветчина и грибы"
+          },
+          "description": {
+            "ka": "პომიდორი, მოცარელა, ლორი, შამპინიონი",
+            "en": "Tomato, mozzarella, ham, champignons",
+            "ru": "Томаты, моцарелла, ветчина, шампиньоны"
+          },
           "price": 19
         },
         {
-          "name": { "ka": "ოთხი ყველი", "en": "Four cheese", "ru": "Четыре сыра" },
-          "description": { "ka": "მოცარელა, სულგუნი, გაუდა, ლურჯი ყველი", "en": "Mozzarella, sulguni, gouda, blue cheese", "ru": "Моцарелла, сулугуни, гауда, голубой сыр" },
+          "name": {
+            "ka": "ოთხი ყველი",
+            "en": "Four cheese",
+            "ru": "Четыре сыра"
+          },
+          "description": {
+            "ka": "მოცარელა, სულგუნი, გაუდა, ლურჯი ყველი",
+            "en": "Mozzarella, sulguni, gouda, blue cheese",
+            "ru": "Моцарелла, сулугуни, гауда, голубой сыр"
+          },
           "price": 21
         }
       ]
     },
     {
-      "name": { "ka": "ქართული", "en": "Georgian twist", "ru": "По-грузински" },
+      "name": {
+        "ka": "ქართული",
+        "en": "Georgian twist",
+        "ru": "По-грузински"
+      },
       "items": [
         {
-          "name": { "ka": "სულგუნი და სოკო", "en": "Sulguni & mushroom", "ru": "Сулугуни и грибы" },
-          "description": { "ka": "სულგუნი, შამპინიონი, ნივრის ზეთი", "en": "Sulguni, champignons, garlic oil", "ru": "Сулугуни, шампиньоны, чесночное масло" },
+          "name": {
+            "ka": "სულგუნი და სოკო",
+            "en": "Sulguni & mushroom",
+            "ru": "Сулугуни и грибы"
+          },
+          "description": {
+            "ka": "სულგუნი, შამპინიონი, ნივრის ზეთი",
+            "en": "Sulguni, champignons, garlic oil",
+            "ru": "Сулугуни, шампиньоны, чесночное масло"
+          },
           "price": 19
         },
         {
-          "name": { "ka": "იმერული", "en": "Imeruli", "ru": "Имерули" },
-          "description": { "ka": "იმერული ყველი, სულგუნი, კვერცხის გული", "en": "Imeruli cheese, sulguni, egg yolk", "ru": "Имеретинский сыр, сулугуни, желток" },
+          "name": {
+            "ka": "იმერული",
+            "en": "Imeruli",
+            "ru": "Имерули"
+          },
+          "description": {
+            "ka": "იმერული ყველი, სულგუნი, კვერცხის გული",
+            "en": "Imeruli cheese, sulguni, egg yolk",
+            "ru": "Имеретинский сыр, сулугуни, желток"
+          },
           "price": 20
         },
         {
-          "name": { "ka": "ქათამი აჯიკით", "en": "Adjika chicken", "ru": "Курица с аджикой" },
-          "description": { "ka": "ქათამი, აჯიკა, მოცარელა, წითელი ხახვი", "en": "Chicken, adjika, mozzarella, red onion", "ru": "Курица, аджика, моцарелла, красный лук" },
+          "name": {
+            "ka": "ქათამი აჯიკით",
+            "en": "Adjika chicken",
+            "ru": "Курица с аджикой"
+          },
+          "description": {
+            "ka": "ქათამი, აჯიკა, მოცარელა, წითელი ხახვი",
+            "en": "Chicken, adjika, mozzarella, red onion",
+            "ru": "Курица, аджика, моцарелла, красный лук"
+          },
           "price": 21
         },
         {
-          "name": { "ka": "ბოსტნეულის", "en": "Garden", "ru": "Овощная" },
-          "description": { "ka": "პომიდორი, ბულგარული წიწაკა, ზეთისხილი, ხახვი", "en": "Tomato, bell pepper, olives, onion", "ru": "Томаты, болгарский перец, оливки, лук" },
-          "price": 17
+          "name": {
+            "ka": "ბოსტნეულის",
+            "en": "Garden",
+            "ru": "Овощная"
+          },
+          "description": {
+            "ka": "პომიდორი, ბულგარული წიწაკა, ზეთისხილი, ხახვი",
+            "en": "Tomato, bell pepper, olives, onion",
+            "ru": "Томаты, болгарский перец, оливки, лук"
+          },
+          "price": 25
         }
       ]
     },
     {
-      "name": { "ka": "სასმელი", "en": "Drinks", "ru": "Напитки" },
+      "name": {
+        "ka": "ტორტები",
+        "en": "Cakes",
+        "ru": "Торты"
+      },
       "items": [
         {
-          "name": { "ka": "ტარხუნის ლიმონათი", "en": "Tarragon lemonade", "ru": "Тархун" },
-          "description": { "ka": "0.5 ლ", "en": "0.5 L", "ru": "0,5 л" },
+          "name": {
+            "ka": "თაფლის ტორტი",
+            "en": "Honey cake",
+            "ru": "Медовик"
+          },
+          "description": {
+            "ka": "ნაჭერი",
+            "en": "Slice",
+            "ru": "Кусок"
+          },
+          "price": 8
+        },
+        {
+          "name": {
+            "ka": "ნაპოლეონი",
+            "en": "Napoleon",
+            "ru": "Наполеон"
+          },
+          "description": {
+            "ka": "ნაჭერი",
+            "en": "Slice",
+            "ru": "Кусок"
+          },
+          "price": 8
+        },
+        {
+          "name": {
+            "ka": "ჩიზქეიქი",
+            "en": "Cheesecake",
+            "ru": "Чизкейк"
+          },
+          "description": {
+            "ka": "ნაჭერი",
+            "en": "Slice",
+            "ru": "Кусок"
+          },
+          "price": 9
+        },
+        {
+          "name": {
+            "ka": "შოკოლადის ტორტი",
+            "en": "Chocolate cake",
+            "ru": "Шоколадный торт"
+          },
+          "description": {
+            "ka": "ნაჭერი",
+            "en": "Slice",
+            "ru": "Кусок"
+          },
+          "price": 9
+        }
+      ]
+    },
+    {
+      "name": {
+        "ka": "გამაგრილებელი სასმელები",
+        "en": "Cold drinks",
+        "ru": "Холодные напитки"
+      },
+      "items": [
+        {
+          "name": {
+            "ka": "კოლა",
+            "en": "Cola",
+            "ru": "Кола"
+          },
+          "description": {
+            "ka": "ქილა, 0.33 ლ",
+            "en": "Can, 0.33 L",
+            "ru": "Банка, 0,33 л"
+          },
+          "price": 3
+        },
+        {
+          "name": {
+            "ka": "ტარხუნის ლიმონათი",
+            "en": "Tarragon lemonade",
+            "ru": "Лимонад «Тархун»"
+          },
+          "description": {
+            "ka": "ქილა, 0.33 ლ",
+            "en": "Can, 0.33 L",
+            "ru": "Банка, 0,33 л"
+          },
+          "price": 3
+        },
+        {
+          "name": {
+            "ka": "ცივი ჩაი",
+            "en": "Iced tea",
+            "ru": "Холодный чай"
+          },
+          "description": {
+            "ka": "ქილა, 0.33 ლ",
+            "en": "Can, 0.33 L",
+            "ru": "Банка, 0,33 л"
+          },
+          "price": 3
+        },
+        {
+          "name": {
+            "ka": "გაზიანი წყალი",
+            "en": "Sparkling water",
+            "ru": "Газированная вода"
+          },
+          "description": {
+            "ka": "0.5 ლ",
+            "en": "0.5 L",
+            "ru": "0,5 л"
+          },
+          "price": 2
+        }
+      ]
+    },
+    {
+      "name": {
+        "ka": "ყავა",
+        "en": "Coffee",
+        "ru": "Кофе"
+      },
+      "orderable": false,
+      "items": [
+        {
+          "name": {
+            "ka": "ესპრესო",
+            "en": "Espresso",
+            "ru": "Эспрессо"
+          },
           "price": 5
         },
         {
-          "name": { "ka": "კოლა", "en": "Cola", "ru": "Кола" },
-          "description": { "ka": "0.5 ლ", "en": "0.5 L", "ru": "0,5 л" },
+          "name": {
+            "ka": "ამერიკანო",
+            "en": "Americano",
+            "ru": "Американо"
+          },
+          "price": 6
+        },
+        {
+          "name": {
+            "ka": "კაპუჩინო",
+            "en": "Cappuccino",
+            "ru": "Капучино"
+          },
+          "price": 7
+        },
+        {
+          "name": {
+            "ka": "ლატე",
+            "en": "Latte",
+            "ru": "Латте"
+          },
+          "price": 8
+        }
+      ]
+    },
+    {
+      "name": {
+        "ka": "ჩაი",
+        "en": "Tea",
+        "ru": "Чай"
+      },
+      "orderable": false,
+      "items": [
+        {
+          "name": {
+            "ka": "შავი ჩაი",
+            "en": "Black tea",
+            "ru": "Чёрный чай"
+          },
           "price": 4
         },
         {
-          "name": { "ka": "წყალი", "en": "Water", "ru": "Вода" },
-          "description": { "ka": "0.5 ლ, უგაზო", "en": "0.5 L, still", "ru": "0,5 л, без газа" },
-          "price": 2,
-          "available": true
+          "name": {
+            "ka": "მწვანე ჩაი",
+            "en": "Green tea",
+            "ru": "Зелёный чай"
+          },
+          "price": 4
+        },
+        {
+          "name": {
+            "ka": "მცენარეული ჩაი",
+            "en": "Herbal tea",
+            "ru": "Травяной чай"
+          },
+          "price": 5
         }
       ]
     }

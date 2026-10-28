@@ -217,7 +217,7 @@ function setupHours() {
   const isOpen = now >= open && now < close - prep;
   const status = $<HTMLElement>('[data-status]');
   body.toggleAttribute('data-closed', !isOpen);
-  status.textContent = isOpen ? status.dataset.openText! : status.dataset.closedText!.replace('{t}', body.dataset.open!);
+  status.textContent = isOpen ? status.dataset.openText! : status.dataset.closedText!;
 
   const select = pickupSelect;
   const keep = select.value;

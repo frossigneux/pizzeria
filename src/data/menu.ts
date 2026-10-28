@@ -16,6 +16,8 @@ export interface Item {
 export interface Category {
   id: string;
   name: Text;
+  // false: shown for information only (served at the café, not ordered online).
+  orderable: boolean;
   items: Item[];
 }
 
@@ -42,6 +44,7 @@ function load(data: unknown): Category[] {
     const where = `category ${ci + 1}`;
     const name = text(c.name, file, `${where} → "name"`);
     const id = uniqueId(typeof c.id === 'string' && c.id ? c.id : slug(name.en), where);
+    check(c.orderable === undefined || typeof c.orderable === 'boolean', file, `${where} ("${name.en}") → "orderable" must be true or false, without quotes`);
     check(Array.isArray(c.items), file, `${where} ("${name.en}") → "items" must be a list`);
 
     const items = (c.items as Record<string, unknown>[])
@@ -58,13 +61,14 @@ function load(data: unknown): Category[] {
           price: i.price as number,
         };
       });
-    return { id, name, items };
+    return { id, name, orderable: c.orderable !== false, items };
   }).filter((c) => c.items.length > 0);
 }
 
 export const menu: Category[] = load(raw);
 
+// Only what can be ordered online can go into the cart.
 export const items: Record<string, Item> = Object.fromEntries(
-  menu.flatMap((c) => c.items.map((i) => [i.id, i])),
+  menu.filter((c) => c.orderable).flatMap((c) => c.items.map((i) => [i.id, i])),
 );
 

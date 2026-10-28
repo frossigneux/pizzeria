@@ -64,7 +64,6 @@ const icon = {
       <div class="hero-inner">
         <div class="hero-title">
           <h1 id="venue-name">{config.name}</h1>
-          {config.placeholder && <p class="sample">{t(lang, 'nameToCome')}</p>}
         </div>
         <nav class="lang" aria-label="Language">
           {
@@ -80,7 +79,7 @@ const icon = {
 
     <section class="venue" aria-labelledby="venue-name">
       <p class="venue-info">
-        <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed')}>{t(lang, 'open')}</span></span>
+        <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed', { t: config.hours.open })}>{t(lang, 'open')}</span></span>
         <span class="chip">{t(lang, 'ready', { n: config.prepMinutes })}</span>
         <span class="chip">{t(lang, 'pickupOnly')}</span>
         {
@@ -115,16 +114,17 @@ const icon = {
           menu.map((c) => (
             <section class="cat" id={c.id} aria-labelledby={`h-${c.id}`}>
               <h2 id={`h-${c.id}`}>{c.name[lang]}</h2>
+              {!c.orderable && <p class="cat-note">{t(lang, 'atCafe')}</p>}
               <ul class="items">
                 {c.items.map((i) => (
-                  <li class="item" data-item={i.id}>
+                  <li class={c.orderable ? 'item' : 'item item--info'} data-item={c.orderable ? i.id : undefined}>
                     <div class="item-text">
                       <h3>{i.name[lang]}</h3>
                       {i.desc[lang] && <p class="desc">{i.desc[lang]}</p>}
                       <p class="alt" lang={alt}>{i.name[alt]}</p>
                       <p class="price">{price(i.price)}</p>
                     </div>
-                    <div class="qty" data-qty="0">
+                    {c.orderable && (<div class="qty" data-qty="0">
                       <button class="qty-btn qty-remove" type="button" data-remove aria-label={t(lang, 'removeOne', { name: i.name[lang] })}>
                         <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.minus} />
                       </button>
@@ -132,7 +132,7 @@ const icon = {
                       <button class="qty-btn qty-plus" type="button" data-add aria-label={t(lang, 'addOne', { name: i.name[lang] })}>
                         <svg viewBox="0 0 20 20" aria-hidden="true" set:html={icon.plus} />
                       </button>
-                    </div>
+                    </div>)}
                   </li>
                 ))}
               </ul>
