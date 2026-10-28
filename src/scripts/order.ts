@@ -382,8 +382,7 @@ form.addEventListener('submit', (e) => {
     acc.removeAttribute('data-bank');
     sentBank.append(acc);
   }
-  // The order now lives in WhatsApp: empty the cart, but keep a copy for "Edit this order".
-  lastOrder = new Map(cart);
+  // The order now lives in WhatsApp: empty the cart.
   cart.clear();
   store.set(CART_KEY, {});
   form.hidden = true;
@@ -391,18 +390,6 @@ form.addEventListener('submit', (e) => {
   render();
   setOpen(true);
   sent.focus();
-});
-
-let lastOrder = new Map<string, number>();
-
-// "Edit this order": put the order that was just sent back in the cart.
-$<HTMLButtonElement>('[data-back]').addEventListener('click', () => {
-  for (const [id, n] of lastOrder) if (items[id]) cart.set(id, n);
-  store.set(CART_KEY, Object.fromEntries(cart));
-  sent.hidden = true;
-  form.hidden = false;
-  render();
-  nameInput.focus();
 });
 
 $<HTMLButtonElement>('[data-new]').addEventListener('click', () => {

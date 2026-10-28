@@ -8,7 +8,6 @@ export const langPath: Record<Lang, string> = { ka: `${base}/`, en: `${base}/en/
 
 const strings = {
   ka: {
-    editOrder: 'შეკვეთის შეცვლა',
     clearOrder: 'შეკვეთის გასუფთავება',
     promo: 'აქცია',
     wasPrice: 'ძველი ფასი',
@@ -70,7 +69,6 @@ const strings = {
     msgTotal: 'ჯამი',
   },
   en: {
-    editOrder: 'Edit this order',
     clearOrder: 'Clear order',
     promo: 'Promo',
     wasPrice: 'Was',
@@ -132,7 +130,6 @@ const strings = {
     msgTotal: 'Total',
   },
   ru: {
-    editOrder: 'Изменить заказ',
     clearOrder: 'Очистить заказ',
     promo: 'Акция',
     wasPrice: 'Было',
