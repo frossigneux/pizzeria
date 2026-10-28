@@ -82,8 +82,8 @@ const icon = {
       </div>
     </header>
 
-    <section class="venue" aria-labelledby="venue-name">
-      <Image
+    <section class={config.showPhoto ? 'venue venue--photo' : 'venue'} aria-labelledby="venue-name">
+      {config.showPhoto && (<Image
         class="venue-photo"
         src={cafe}
         alt={t(lang, 'photoAlt')}
@@ -91,7 +91,7 @@ const icon = {
         sizes="(min-width: 960px) 420px, calc(100vw - 32px)"
         loading="eager"
         fetchpriority="high"
-      />
+      />)}
       <div class="venue-body">
       <p class="venue-info">
         <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed', { t: '{t}' })} data-closed-day-text={t(lang, 'closedDay', { d: '{d}', t: '{t}' })}>{t(lang, 'open')}</span></span>

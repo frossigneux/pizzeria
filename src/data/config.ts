@@ -8,6 +8,7 @@ const s = raw as Record<string, any>;
 const hhmm = /^([01]\d|2[0-3]):[0-5]\d$/;
 
 check(typeof s.name === 'string' && s.name.trim(), file, '"name" must be the pizzeria name in quotes');
+check(s.showPhoto === undefined || typeof s.showPhoto === 'boolean', file, '"showPhoto" must be true or false, without quotes');
 
 const whatsapp = String(s.whatsapp ?? '').replace(/\D/g, '');
 check(whatsapp.length >= 9, file, '"whatsapp" must be the full number with country code, e.g. "+995 555 12 34 56"');
@@ -45,6 +46,8 @@ check(
 export const config = {
   placeholder: s.showSampleLabels !== false,
   name: s.name.trim() as string,
+  // The café illustration (src/assets/cafe.jpg) at the top of the info card.
+  showPhoto: s.showPhoto !== false,
   // Digits only, as https://wa.me/<number> expects.
   whatsapp,
   // Tbilisi time (UTC+4, no daylight saving).

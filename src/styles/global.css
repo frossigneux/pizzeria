@@ -1060,6 +1060,9 @@ body[data-closed] .status {
   .venue {
     margin: -32px auto 0;
     width: calc(100% - 2 * var(--sp-4));
+  }
+
+  .venue--photo {
     display: grid;
     grid-template-columns: 420px minmax(0, 1fr);
     align-items: center;
