@@ -340,8 +340,8 @@
       "kind": "chip",
       "refersTo": "chip",
       "description": "Venue facts: green open status, neutral crust chips, yellow placeholder note.",
-      "html": "<div class=\"ds-chips\"><span class=\"ds-status\"><span class=\"ds-dot\"></span>Open now</span><span class=\"ds-chip\">Ready in ~20 min</span><span class=\"ds-chip\">Pickup only</span><span class=\"ds-sample\">Sample menu · prices to confirm</span></div>",
-      "css": ".ds-chips{font-family: var(--font);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}.ds-chip,.ds-status{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:4px 12px;border-radius:999px;font-size:var(--t-s);}.ds-chip{background:var(--surface-2);color:var(--ink);}.ds-status{background:var(--green-soft);color:var(--green-strong);font-weight:500;}.ds-dot{width:8px;height:8px;border-radius:50%;background:currentColor;}.ds-sample{font-size:var(--t-xs);font-weight:500;background:var(--note-bg);color:var(--note-ink);padding:2px 8px;border-radius:6px;}"
+      "html": "<div class=\"ds-chips\"><span class=\"ds-status\"><span class=\"ds-dot\"></span>Open now</span><span class=\"ds-chip\">Ready in ~20 min</span><span class=\"ds-chip\">Pickup only</span></div>",
+      "css": ".ds-chips{font-family: var(--font);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}.ds-chip,.ds-status{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:4px 12px;border-radius:999px;font-size:var(--t-s);}.ds-chip{background:var(--surface-2);color:var(--ink);}.ds-status{background:var(--green-soft);color:var(--green-strong);font-weight:500;}.ds-dot{width:8px;height:8px;border-radius:50%;background:currentColor;}"
     },
     {
       "name": "Category Tabs",
