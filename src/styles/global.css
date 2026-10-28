@@ -489,6 +489,36 @@ body[data-closed] .status {
   font-weight: 500;
 }
 
+.hours {
+  border-collapse: collapse;
+  font-weight: 400;
+}
+
+.hours th,
+.hours td {
+  padding: 2px 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.hours th {
+  padding-right: var(--sp-5);
+}
+
+.hours th::first-letter {
+  text-transform: uppercase;
+}
+
+.hours tr.is-today {
+  font-weight: 500;
+  color: var(--tomato-strong);
+}
+
+.hours tr.is-today th,
+.hours tr.is-today td {
+  font-weight: 500;
+}
+
 .info dd .sample {
   margin-left: var(--sp-2);
 }

@@ -1,12 +1,37 @@
 {
-  "showSampleLabels": true,
+  "showSampleLabels": false,
   "name": "Family",
   "whatsapp": "+995 500 00 00 00",
   "openingHours": {
-    "open": "11:00",
-    "close": "23:00"
+    "monday": {
+      "open": "10:00",
+      "close": "22:00"
+    },
+    "tuesday": {
+      "open": "10:00",
+      "close": "22:00"
+    },
+    "wednesday": {
+      "open": "10:00",
+      "close": "22:00"
+    },
+    "thursday": {
+      "open": "10:00",
+      "close": "22:00"
+    },
+    "friday": {
+      "open": "10:00",
+      "close": "23:00"
+    },
+    "saturday": {
+      "open": "10:00",
+      "close": "23:00"
+    },
+    "sunday": {
+      "open": "11:00",
+      "close": "21:00"
+    }
   },
-  "prepMinutes": 20,
   "address": {
     "ka": "მისამართი მალე",
     "en": "Address to come",

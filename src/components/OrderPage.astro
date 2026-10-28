@@ -6,7 +6,7 @@ import '@fontsource/noto-sans-georgian/400.css';
 import '@fontsource/noto-sans-georgian/500.css';
 import '@fontsource/noto-sans-georgian/700.css';
 import '../styles/global.css';
-import { config } from '../data/config';
+import { config, weekdays } from '../data/config';
 import { menu } from '../data/menu';
 import { langs, langLabel, langPath, t, price, type Lang } from '../i18n';
 
@@ -18,6 +18,9 @@ const { lang } = Astro.props;
 const alt: Lang = lang === 'ka' ? 'en' : 'ka';
 // IBANs read in groups of four; the copy button keeps the unspaced value.
 const groups = (iban: string) => iban.match(/.{1,4}/g) ?? [iban];
+// Localised weekday names, Monday first (2024-01-01 was a Monday).
+const dayName = (i: number) =>
+  new Intl.DateTimeFormat(lang, { weekday: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2024, 0, 1 + i)));
 const site = Astro.site ?? new URL('http://localhost');
 
 const icon = {
@@ -59,7 +62,7 @@ const icon = {
       )
     }
   </head>
-  <body data-wa={config.whatsapp} data-open={config.hours.open} data-close={config.hours.close} data-prep={config.prepMinutes}>
+  <body data-wa={config.whatsapp} data-week={JSON.stringify(config.week)} data-days={JSON.stringify(weekdays.map((_, i) => dayName(i)))}>
     <header class="hero">
       <div class="hero-inner">
         <div class="hero-title">
@@ -79,8 +82,7 @@ const icon = {
 
     <section class="venue" aria-labelledby="venue-name">
       <p class="venue-info">
-        <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed', { t: config.hours.open })}>{t(lang, 'open')}</span></span>
-        <span class="chip">{t(lang, 'ready', { n: config.prepMinutes })}</span>
+        <span class="status"><span class="status-dot" aria-hidden="true"></span><span data-status data-open-text={t(lang, 'open')} data-closed-text={t(lang, 'closed', { t: '{t}' })} data-closed-day-text={t(lang, 'closedDay', { d: '{d}', t: '{t}' })}>{t(lang, 'open')}</span></span>
         <span class="chip">{t(lang, 'pickupOnly')}</span>
         {
           config.mapUrl && (
@@ -162,7 +164,16 @@ const icon = {
             <div>
               <dt>{t(lang, 'hours')}</dt>
               <dd>
-                {config.hours.open}–{config.hours.close}
+                <table class="hours">
+                  <tbody>
+                    {config.week.map((h, i) => (
+                      <tr data-day={i}>
+                        <th scope="row">{dayName(i)}</th>
+                        <td>{h ? `${h.open}–${h.close}` : t(lang, 'closedAllDay')}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
                 {config.placeholder && <span class="sample sample--inline">{t(lang, 'hoursTbc')}</span>}
               </dd>
             </div>

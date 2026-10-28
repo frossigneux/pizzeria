@@ -198,33 +198,57 @@ const toMin = (hhmm: string) => {
 };
 const fmt = (min: number) => `${String(Math.floor(min / 60) % 24).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
 
-function tbilisiNow(): number {
+// Minutes since midnight and weekday (0 = Monday) in Tbilisi.
+function tbilisiNow(): { min: number; day: number } {
   const parts = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Tbilisi',
     hour: '2-digit',
     minute: '2-digit',
+    weekday: 'short',
     hourCycle: 'h23',
   }).formatToParts(new Date());
-  const get = (type: string) => Number(parts.find((p) => p.type === type)?.value ?? 0);
-  return get('hour') * 60 + get('minute');
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? '';
+  const day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(get('weekday'));
+  return { min: Number(get('hour')) * 60 + Number(get('minute')), day };
 }
 
+type DayHours = { open: string; close: string } | null;
+const week = JSON.parse(body.dataset.week!) as DayHours[];
+const dayNames = JSON.parse(body.dataset.days!) as string[];
+
 function setupHours() {
-  const open = toMin(body.dataset.open!);
-  const close = toMin(body.dataset.close!);
-  const prep = Number(body.dataset.prep);
-  const now = tbilisiNow();
-  const isOpen = now >= open && now < close - prep;
+  const { min: now, day } = tbilisiNow();
+  const today = week[day];
+  const isOpen = !!today && now >= toMin(today.open) && now < toMin(today.close);
   const status = $<HTMLElement>('[data-status]');
   body.toggleAttribute('data-closed', !isOpen);
-  status.textContent = isOpen ? status.dataset.openText! : status.dataset.closedText!;
 
+  // Next opening: later today, or the first open day after today.
+  let next = { offset: 0, open: today ? toMin(today.open) : -1, close: today ? toMin(today.close) : -1 };
+  if (!isOpen && !(today && now < toMin(today.open))) {
+    for (let k = 1; k <= 7; k++) {
+      const h = week[(day + k) % 7];
+      if (h) {
+        next = { offset: k, open: toMin(h.open), close: toMin(h.close) };
+        break;
+      }
+    }
+  }
+  if (isOpen) status.textContent = status.dataset.openText!;
+  else if (next.offset === 0) status.textContent = status.dataset.closedText!.replace('{t}', fmt(next.open));
+  else
+    status.textContent = status.dataset.closedDayText!.replace('{d}', dayNames[(day + next.offset) % 7]).replace('{t}', fmt(next.open));
+
+  for (const row of $$<HTMLElement>('.hours tr')) row.classList.toggle('is-today', Number(row.dataset.day) === day);
+
+  // Pickup slots every 15 minutes: from the next quarter hour today, or from the next opening.
   const select = pickupSelect;
   const keep = select.value;
-  const first = isOpen ? Math.ceil((now + prep) / 15) * 15 : open + prep;
+  const prefix = next.offset ? `${dayNames[(day + next.offset) % 7]} ` : '';
+  const first = isOpen ? Math.ceil((now + 1) / 15) * 15 : next.open;
   const options: HTMLOptionElement[] = [];
   if (isOpen) options.push(new Option(select.dataset.asap!, 'asap'));
-  for (let m = Math.ceil(first / 15) * 15; m <= close; m += 15) options.push(new Option(fmt(m), fmt(m)));
+  for (let m = Math.ceil(first / 15) * 15; m <= next.close; m += 15) options.push(new Option(prefix + fmt(m), prefix + fmt(m)));
   select.replaceChildren(...options);
   if (options.some((o) => o.value === keep)) select.value = keep;
   updateMeta();

@@ -40,7 +40,7 @@ Fast and good value: quick service, fair prices, orders ready on time. The produ
 
 ## Evidence on Hand
 
-Name: Family (from the storefront). Location pin: 41.91935, 44.727734. One confirmed price: the vegetable pizza is 25 GEL. No logo, full menu, other prices or photos yet. Placeholders are allowed but must be clearly marked as placeholders. Never present invented names, dishes, prices, reviews or photos as real.
+Name: Family (from the storefront). Location pin: 41.91935, 44.727734. One confirmed price: the vegetable pizza is 25 GEL. No logo, full menu, other prices or photos yet. Placeholders remain in content/*.json; on 2026-10-28 the user chose to hide the "sample" labels (settings.showSampleLabels = false), so replacing the placeholder WhatsApp number, IBANs, hours and prices before real customers use the site is on the owner. Never present invented names, dishes, prices, reviews or photos as real.
 
 ## Product Principles
 

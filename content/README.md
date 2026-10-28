@@ -5,7 +5,7 @@ Two files in this folder control what the website shows:
 | File | What it holds |
 |---|---|
 | [`menu.json`](menu.json) | Categories, pizzas, drinks, descriptions and prices |
-| [`settings.json`](settings.json) | Name, WhatsApp number, opening hours, preparation time, address, bank accounts |
+| [`settings.json`](settings.json) | Name, WhatsApp number, opening hours, address, map location, bank accounts |
 
 ## How to edit on GitHub
 
@@ -47,8 +47,7 @@ If you made a mistake, a red cross appears instead. Click it, then **Details**: 
 
 - `"whatsapp"`: the number that receives orders, with country code, e.g. `"+995 555 12 34 56"`.
 - `"location"`: the pickup point on the map, as `{ "lat": 41.91935, "lng": 44.727734 }`. In Google Maps, right-click the place and click the coordinates to copy them. Remove the line to hide the map link.
-- `"openingHours"`: 24-hour clock, Tbilisi time, e.g. `"open": "11:00"`, `"close": "23:00"`.
-- `"prepMinutes"`: the usual wait shown to customers ("ready in ~20 min").
+- `"openingHours"`: one line per day (`monday` … `sunday`), 24-hour clock, Tbilisi time, e.g. `"friday": { "open": "10:00", "close": "23:00" }`. Write `"sunday": "closed"` for a day off. Closing after midnight is not supported.
 - `"bankAccounts"`: IBAN and account holder for Bank of Georgia (`bog`) and TBC (`tbc`). Spaces in the IBAN are fine.
 - `"showSampleLabels"`: set it to `false` once the real menu, hours and accounts are filled in. This removes the yellow "sample" labels.
 

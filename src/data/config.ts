@@ -12,9 +12,22 @@ check(typeof s.name === 'string' && s.name.trim(), file, '"name" must be the piz
 const whatsapp = String(s.whatsapp ?? '').replace(/\D/g, '');
 check(whatsapp.length >= 9, file, '"whatsapp" must be the full number with country code, e.g. "+995 555 12 34 56"');
 
-check(hhmm.test(s.openingHours?.open) && hhmm.test(s.openingHours?.close), file, '"openingHours" must look like { "open": "11:00", "close": "23:00" } (24-hour clock)');
-check(s.openingHours.open < s.openingHours.close, file, '"openingHours": "close" must be later than "open"');
-check(Number.isInteger(s.prepMinutes) && s.prepMinutes > 0, file, '"prepMinutes" must be a whole number of minutes, e.g. 20');
+// Monday first. Each day is { "open": "10:00", "close": "22:00" } or "closed".
+export const weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
+export type DayHours = { open: string; close: string } | null;
+check(s.openingHours && typeof s.openingHours === 'object', file, '"openingHours" must list the seven days, e.g. "monday": { "open": "10:00", "close": "22:00" }');
+for (const key of Object.keys(s.openingHours)) {
+  check((weekdays as readonly string[]).includes(key), file, `"openingHours": unknown day "${key}" (use monday … sunday, in English)`);
+}
+const week: DayHours[] = weekdays.map((day) => {
+  const h = s.openingHours[day];
+  check(h !== undefined, file, `"openingHours" → "${day}" is missing (write "closed" if the café is closed that day)`);
+  if (h === 'closed') return null;
+  check(hhmm.test(h?.open) && hhmm.test(h?.close), file, `"openingHours" → "${day}" must look like { "open": "10:00", "close": "22:00" } (24-hour clock) or "closed"`);
+  check(h.open < h.close, file, `"openingHours" → "${day}": "close" must be later than "open" (closing after midnight is not supported)`);
+  return { open: h.open, close: h.close };
+});
+check(week.some(Boolean), file, '"openingHours": at least one day must be open');
 
 for (const bank of ['bog', 'tbc'] as const) {
   const acc = s.bankAccounts?.[bank];
@@ -35,8 +48,7 @@ export const config = {
   // Digits only, as https://wa.me/<number> expects.
   whatsapp,
   // Tbilisi time (UTC+4, no daylight saving).
-  hours: { open: s.openingHours.open as string, close: s.openingHours.close as string },
-  prepMinutes: s.prepMinutes as number,
+  week,
   address: text(s.address, file, '"address"'),
   // Opens the pin in Google Maps (app on phones, website otherwise).
   mapUrl: loc ? `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}` : null,
