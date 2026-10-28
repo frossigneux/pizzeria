@@ -8,6 +8,8 @@ export const langPath: Record<Lang, string> = { ka: `${base}/`, en: `${base}/en/
 
 const strings = {
   ka: {
+    editOrder: 'შეკვეთის შეცვლა',
+    clearOrder: 'შეკვეთის გასუფთავება',
     promo: 'აქცია',
     wasPrice: 'ძველი ფასი',
     unavailable: 'დროებით მიუწვდომელია',
@@ -52,8 +54,6 @@ const strings = {
     copied: 'დაკოპირდა',
     sentTitle: 'WhatsApp გაიხსნა თქვენი შეკვეთით',
     sentBody: 'დააჭირეთ „გაგზავნას“ WhatsApp-ში. ჩვენ დაგიდასტურებთ შეკვეთას და მზადყოფნის დროს.',
-    newOrder: 'ახალი შეკვეთა',
-    backToOrder: 'შეკვეთაზე დაბრუნება',
     info: 'ინფორმაცია',
     hours: 'სამუშაო საათები',
     address: 'მისამართი',
@@ -70,6 +70,8 @@ const strings = {
     msgTotal: 'ჯამი',
   },
   en: {
+    editOrder: 'Edit this order',
+    clearOrder: 'Clear order',
     promo: 'Promo',
     wasPrice: 'Was',
     unavailable: 'Temporarily unavailable',
@@ -114,8 +116,6 @@ const strings = {
     copied: 'Copied',
     sentTitle: 'WhatsApp opened with your order',
     sentBody: 'Tap send in WhatsApp. We reply to confirm the order and the pickup time.',
-    newOrder: 'Start a new order',
-    backToOrder: 'Back to my order',
     info: 'Info',
     hours: 'Hours',
     address: 'Address',
@@ -132,6 +132,8 @@ const strings = {
     msgTotal: 'Total',
   },
   ru: {
+    editOrder: 'Изменить заказ',
+    clearOrder: 'Очистить заказ',
     promo: 'Акция',
     wasPrice: 'Было',
     unavailable: 'Временно нет',
@@ -176,8 +178,6 @@ const strings = {
     copied: 'Скопировано',
     sentTitle: 'WhatsApp открыт с вашим заказом',
     sentBody: 'Нажмите «Отправить» в WhatsApp. Мы ответим и подтвердим заказ и время получения.',
-    newOrder: 'Новый заказ',
-    backToOrder: 'Вернуться к заказу',
     info: 'Информация',
     hours: 'Часы работы',
     address: 'Адрес',

@@ -274,6 +274,9 @@ const icon = {
 
         <div class="panel" id="order-panel" data-panel>
           <form class="order" id="order-form" data-form novalidate>
+            <div class="lines-head">
+              <button class="clear" type="button" data-clear hidden>{t(lang, 'clearOrder')}</button>
+            </div>
             <ul class="lines" data-lines></ul>
             <p class="lines-empty" data-empty>{t(lang, 'empty')}</p>
 
@@ -335,8 +338,8 @@ const icon = {
             <p>{t(lang, 'sentBody')}</p>
             <div class="sent-bank" data-sent-bank></div>
             <div class="sent-actions">
-              <button type="button" class="ghost" data-back>{t(lang, 'backToOrder')}</button>
-              <button type="button" class="ghost" data-new>{t(lang, 'newOrder')}</button>
+              <button type="button" class="ghost" data-back>{t(lang, 'editOrder')}</button>
+              <button type="button" class="ghost" data-new>{t(lang, 'close')}</button>
             </div>
           </div>
         </div>

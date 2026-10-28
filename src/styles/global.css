@@ -727,6 +727,27 @@ body[data-closed] .status {
   display: block;
 }
 
+.lines-head {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clear {
+  min-height: 40px;
+  padding: 0 var(--sp-1);
+  border: 0;
+  background: none;
+  color: var(--tomato-strong);
+  font-size: var(--t-s);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.clear:hover {
+  color: #a33412;
+}
+
 .lines li {
   display: flex;
   align-items: center;

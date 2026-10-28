@@ -41,6 +41,7 @@ const sent = $<HTMLElement>('[data-sent]');
 const nameInput = form.elements.namedItem('name') as HTMLInputElement;
 const nameHint = $<HTMLElement>('[data-name-hint]');
 const formError = $<HTMLElement>('[data-form-error]');
+const clearBtn = $<HTMLButtonElement>('[data-clear]');
 const foot = $<HTMLElement>('[data-foot]');
 const metaText = $<HTMLElement>('[data-meta-text]');
 const pickupSelect = $<HTMLSelectElement>('[data-pickup]');
@@ -103,6 +104,7 @@ function render() {
     }),
   );
   $<HTMLElement>('[data-empty]').hidden = count > 0;
+  clearBtn.hidden = count === 0;
   foot.hidden = count === 0 || !sent.hidden;
   dock.toggleAttribute('data-has', count > 0);
   syncTitle();
@@ -380,23 +382,30 @@ form.addEventListener('submit', (e) => {
     acc.removeAttribute('data-bank');
     sentBank.append(acc);
   }
+  // The order now lives in WhatsApp: empty the cart, but keep a copy for "Edit this order".
+  lastOrder = new Map(cart);
+  cart.clear();
+  store.set(CART_KEY, {});
   form.hidden = true;
   sent.hidden = false;
-  foot.hidden = true;
+  render();
   setOpen(true);
   sent.focus();
 });
 
+let lastOrder = new Map<string, number>();
+
+// "Edit this order": put the order that was just sent back in the cart.
 $<HTMLButtonElement>('[data-back]').addEventListener('click', () => {
+  for (const [id, n] of lastOrder) if (items[id]) cart.set(id, n);
+  store.set(CART_KEY, Object.fromEntries(cart));
   sent.hidden = true;
   form.hidden = false;
-  foot.hidden = units() === 0;
+  render();
   nameInput.focus();
 });
 
 $<HTMLButtonElement>('[data-new]').addEventListener('click', () => {
-  cart.clear();
-  store.set(CART_KEY, {});
   form.reset();
   nameInput.value = store.get<{ name?: string }>(CUSTOMER_KEY, {}).name ?? '';
   sent.hidden = true;
@@ -405,6 +414,14 @@ $<HTMLButtonElement>('[data-new]').addEventListener('click', () => {
   render();
   setOpen(false);
   scrollTo({ top: 0 });
+});
+
+clearBtn.addEventListener('click', () => {
+  cart.clear();
+  store.set(CART_KEY, {});
+  formError.textContent = '';
+  render();
+  toggle.focus();
 });
 
 // ── Remember the language picked with the switcher ───────
