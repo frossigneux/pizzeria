@@ -204,10 +204,23 @@ a {
   position: relative;
   max-width: 1088px;
   margin: -24px var(--sp-4) 0;
-  padding: var(--sp-4) var(--sp-5);
+  overflow: hidden;
   background: var(--surface);
   border-radius: var(--r-l);
   box-shadow: var(--shadow-card);
+}
+
+.venue-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 688 / 478;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+.venue-body {
+  padding: var(--sp-4) var(--sp-5);
 }
 
 .venue-info {
@@ -1046,6 +1059,17 @@ body[data-closed] .status {
   .venue {
     margin: -32px auto 0;
     width: calc(100% - 2 * var(--sp-4));
+    display: grid;
+    grid-template-columns: 420px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .venue-photo {
+    height: 100%;
+    min-height: 292px;
+  }
+
+  .venue-body {
     padding: var(--sp-5) var(--sp-6);
   }
 
